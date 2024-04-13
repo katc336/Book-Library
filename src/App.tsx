@@ -1,25 +1,16 @@
-import { Typography } from '@mui/material';
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import { useGetBooksQuery } from './redux/bookApi'
+import Homepage from './components/HomePage/Hompage'
+import NavBar from './components/NavBar'
 
-function App() {
-const {data, error, isLoading } = useGetBooksQuery({});
-if (isLoading) {
-  return <div>Is loading...</div>
-}
-if (error) {
-  console.error(error)
-}
-if (data) {
-  console.log(data)
-}
+const App: React.FC = () => {
   return (
-    <>
-    <Typography>
-     
-    </Typography>
-    </>
+    <div>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+      </Routes>
+    </div>
   )
 }
-
 export default App
