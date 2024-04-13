@@ -1,4 +1,4 @@
-import { AppBar } from "@mui/material"
+import AppBar from "@mui/material/AppBar"
 
 const NavBar: React.FC = () => {
     return (

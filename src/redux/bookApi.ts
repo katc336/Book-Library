@@ -10,10 +10,15 @@ const booksApi = createApi({
     // API endpoints
     endpoints: (builder) => ({
         getBooks: builder.query({
-            query: () => "/books"
+            query: () => `/books`
+        }),
+        getSingleBook: builder.query({
+            query: (id) => `/books/${id}`
         })
-
     })
 });
 export default booksApi;
-export const { useGetBooksQuery } = booksApi;
+export const {
+    useGetBooksQuery,
+    useGetSingleBookQuery
+} = booksApi;
