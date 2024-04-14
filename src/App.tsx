@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Homepage from './components/HomePage/Hompage'
-import NavBar from './components/NavBar'
+import NavBar from './components/Navigation/NavBar'
 import SingleBookPage from './components/SingleBookPage/SingleBookPage'
 
 const App: React.FC = () => {

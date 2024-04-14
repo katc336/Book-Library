@@ -1,0 +1,159 @@
+/* <---------------------------SEARCH BAR---------------------------> */
+.search-bar {
+    border-radius: 20px;
+    border: 1px solid  #031920;
+    box-shadow: 2px 2px 5px #032b32;
+    width: 35vw;
+    height: 40px;
+}
+
+/* <---------------------------SEARCH BUTTON---------------------------> */
+.search-button {
+    margin-left: 5%;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    color: white;
+    border-radius: 50px;
+    border: 1px solid  #031920;
+    background-image: linear-gradient(to right top, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47);
+    transition: 0.5s;
+    box-shadow: 2px 2px 5px #032b32;
+    ;
+}
+
+.search-button:hover {
+    cursor: pointer;
+    transition: .5s;
+    transform: center;
+    background-size: 100%;
+    text-decoration: none;
+    scale: 1.1;
+}
+/* <---------------------------BOOK BUTTON---------------------------> */
+.book-button {
+    padding-right: 7px;
+    padding-left: 7px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    background-image: linear-gradient(to right top, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47);
+    transition: 0.5s;
+    box-shadow: 2px 2px 5px #032b32;
+    ;
+}
+
+.book-button:hover {
+    cursor: pointer;
+    transition: .5s;
+    transform: center;
+    background-size: 100%;
+    text-decoration: none;
+    scale: 1.1;
+}
+.nav-button {
+    width: 160px;
+    border-radius: 50px;
+    border-top: solid 1px #031920;
+    border-left: solid 1px #031920;
+    border-bottom: solid 3px #031920;
+    border-right: solid 3px #031920;
+    background-color: rgb(227, 232, 255);
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 2px 2px 5px #032b32;
+    display: block;
+}
+.nav-button:hover{
+    cursor: pointer;
+    transition: .5s;
+    transform: center;
+    background-size: 100%;
+    text-decoration: none;
+    scale: 1.1;
+    background-position: right center;
+}
+
+/* <---------------------------DROP DOWN MENU STYLES---------------------------> */
+.container {
+    position: absolute;
+}
+
+.click {
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+    width: 45px;
+    height: 45px;
+}
+
+.click:checked~.div1 {
+    border: 1px solid  #031920;
+    transition: 0.5s;
+    transform: rotate(-45deg);
+    /* Rotate div on checked*/
+    top: 18px;
+    /*Positions the X shape to be directly on top of the check box*/
+    background-image: linear-gradient(to right top,#031920  #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47);
+}
+
+.click:checked~.div2 {
+    transition: 0s;
+    opacity: 0;
+    /* Turn invisible*/
+}
+
+.click:checked~.div3 {
+    border: 1px solid  #031920;
+    transition: 0.5s;
+    transform: rotate(45deg);
+    /* Rotate div on checked*/
+    top: 18px;
+    /*Positions the X shape to be directly on top of the check box*/
+    background-image: linear-gradient(to right top, #031920, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47, #031920);
+        /* Changes color to ornage on checked*/
+}
+
+/* Lines from div */
+.div1 {
+    border: 1px solid  #031920;
+    background-image: linear-gradient(to right top, #031920, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47, #031920);
+    position: absolute;
+    width: 45px;
+    height: 5px;
+    top: 3px;
+    transition: 0.5s;
+    border-radius: 50px;
+}
+
+.div2 {
+    border: 1px solid  #031920;
+    background-image: linear-gradient(to right top, #031920, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47, #031920);
+    position: absolute;
+    width: 45px;
+    height: 5px;
+    top: 19px;
+    transition: 0.5s;
+    border-radius: 50px;
+}
+
+.div3 {
+    border: 1px solid  #031920;
+    background-image: linear-gradient(to right top, #031920, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47, #031920);
+    position: absolute;
+    width: 45px;
+    height: 5px;
+    top: 35px;
+    transition: 0.5s;
+    border-radius: 50px;
+}
