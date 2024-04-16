@@ -1,12 +1,11 @@
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import NavButton from "./NavButton";
-import SearchBar from "./SearchBar";
+import SearchBar from "./Search/SearchBar";
 
 const WebNavBar = () => {
     const [showMenu, setShowMenu] = useState(false);
@@ -32,17 +31,18 @@ const WebNavBar = () => {
                     variants={variants}
                     transition={{ duration: 0.5 }}
                 >
-                    <Stack direction="row">
-                        <Typography
-                            sx={{ mx: 3, color: "#031920", mr: "10%" }}
-                            variant="h3">
-                            Gutenberg Library
-                        </Typography>
-                        <Box sx={{ mr: "20%", mt: 1.5 }}>
+                    <Grid container>
+                        <Grid item xs={4}>
+                            <Typography
+                                sx={{ mx: 3, color: "#031920", mr: "10%" }}
+                                variant="h3">
+                                Gutenberg Library
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={7}>
                             <SearchBar />
-                        </Box>
-                        <Box
-                            sx={{ direction: "rtl" }}>
+                        </Grid>
+                        <Grid item xs={1}>
                             <div className="container">
                                 <input
                                     className="click"
@@ -60,8 +60,8 @@ const WebNavBar = () => {
                                 <div className="div2"></div>
                                 <div className="div3"></div>
                             </div>
-                        </Box>
-                    </Stack>
+                        </Grid>
+                    </Grid>
                     {showMenu &&
                         <Box sx={{
                             py: 5,

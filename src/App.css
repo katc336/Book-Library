@@ -3,17 +3,16 @@
     border-radius: 20px;
     border: 1px solid  #031920;
     box-shadow: 2px 2px 5px #032b32;
-    width: 35vw;
     height: 40px;
+    width: 40vw;
 }
 
 /* <---------------------------SEARCH BUTTON---------------------------> */
 .search-button {
-    margin-left: 5%;
     padding-right: 10px;
     padding-left: 10px;
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     color: white;
     border-radius: 50px;
     border: 1px solid  #031920;
@@ -100,31 +99,25 @@
 .click:checked~.div1 {
     border: 1px solid  #031920;
     transition: 0.5s;
-    transform: rotate(-45deg);
-    /* Rotate div on checked*/
-    top: 18px;
-    /*Positions the X shape to be directly on top of the check box*/
+    transform: rotate(-45deg); /* Rotate div on checked*/
+    top: 18px; /*Positions the X shape to be directly on top of the check box*/
     background-image: linear-gradient(to right top,#031920  #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47);
 }
 
 .click:checked~.div2 {
     transition: 0s;
-    opacity: 0;
-    /* Turn invisible*/
+    opacity: 0; /* Turn invisible*/
 }
 
 .click:checked~.div3 {
     border: 1px solid  #031920;
     transition: 0.5s;
-    transform: rotate(45deg);
-    /* Rotate div on checked*/
-    top: 18px;
-    /*Positions the X shape to be directly on top of the check box*/
-    background-image: linear-gradient(to right top, #031920, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47, #031920);
-        /* Changes color to ornage on checked*/
+    transform: rotate(45deg); /* Rotate div on checked*/
+    top: 18px; /*Positions the X shape to be directly on top of the check box*/
+    background-image: linear-gradient(to right top, #031920, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47, #031920); /* Changes color to ornage on checked*/
 }
 
-/* Lines from div */
+/* Lines for div */
 .div1 {
     border: 1px solid  #031920;
     background-image: linear-gradient(to right top, #031920, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47, #031920);

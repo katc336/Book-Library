@@ -14,11 +14,15 @@ const booksApi = createApi({
         }),
         getSingleBook: builder.query({
             query: (id) => `/books/${id}`
-        })
+        }),
+        getSearch: builder.query({
+            query: (search) => `/books?search=${search}`
+        }),
     })
 });
 export default booksApi;
 export const {
     useGetBooksQuery,
-    useGetSingleBookQuery
+    useGetSingleBookQuery,
+    useGetSearchQuery
 } = booksApi;
