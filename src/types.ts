@@ -9,6 +9,12 @@ type BookImage = {
    'image/jpeg': string;
 }
 
+interface SearchResult {
+   id: number;
+   name: string;
+   formats: BookImage;
+}
+
 type NavButtonProps = {
    navWord: string;
 }
