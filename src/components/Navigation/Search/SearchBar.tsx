@@ -1,10 +1,21 @@
 import Grid from "@mui/material/Grid";
 import Search from "@mui/icons-material/Search";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar: React.FC = () => {
     const [searchBook, setSearchBook] = useState("");
+
+    const navigate = useNavigate();
+
+    const handleSearch = (event: React.MouseEvent<HTMLButtonElement>) => {
+        if (searchBook.length === 0) {
+            event.preventDefault()
+            console.log("No searched item")
+        } else {
+            navigate(`/search_book/${searchBook}`)
+        }
+    }
     return (
         <div>
             <form>
@@ -19,11 +30,11 @@ const SearchBar: React.FC = () => {
                         />
                     </Grid>
                     <Grid item xs={3}>
-                        <Link to={`/search_book/${searchBook}`}>
-                            <button className="search-button">
-                                <Search />
-                            </button>
-                        </Link>
+                        <button
+                            onClick={(event) => handleSearch(event)}
+                            className="search-button">
+                            <Search />
+                        </button>
                     </Grid>
                 </Grid>
             </form>

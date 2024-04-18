@@ -23,6 +23,9 @@ type BookAuthorProps = {
       translators: [];
    };
 };
+type EventProps = {
+   event: string;
+}
 type BookImage = {
    [key: string]: string;
    'image/jpeg': string;
