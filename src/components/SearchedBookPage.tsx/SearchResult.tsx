@@ -1,3 +1,4 @@
+import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -17,10 +18,22 @@ const SearchResults: React.FC = () => {
     console.log(data);
     return (
         <>
-            {data.results.length === 0 &&
-                <Typography sx={{ py: 2 }}>
-                    Sorry, there is no book matching your search.
-                </Typography>}
+            {data.results.length === 0
+                ?
+                <Alert
+                    sx={{ mt: 15 }}
+                    severity="info">
+                    <Typography variant="h4">
+                        Sorry, there is no books matching your search of: {searchBook}.
+                    </Typography>
+                </Alert>
+                :
+                <Typography
+                    sx={{ mt: 15, ml: 3 }}
+                    variant="h3">
+                    All Books With {searchBook}:
+                </Typography>
+            }
             <Stack direction="row" flexWrap="wrap">
                 {data.results.map((book: SearchResult) => (
                     <Stack direction="column">

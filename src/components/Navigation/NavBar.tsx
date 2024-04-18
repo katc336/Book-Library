@@ -76,21 +76,14 @@ const WebNavBar = () => {
                             >
                                 <Box sx={{ ml: 20, flexGrow: 1 }}>
                                     <Grid container spacing={15}>
-
-                                        <Grid item xs={2}>
+                                        <Grid item xs={4}>
                                             <NavButton navWord="By Date" />
                                         </Grid>
-                                        <Grid item xs={2}>
+                                        <Grid item xs={4}>
                                             <NavButton navWord="Most Popular" />
                                         </Grid>
-                                        <Grid item xs={2}>
-                                            <NavButton navWord="By Author" />
-                                        </Grid>
-                                        <Grid item xs={2}>
+                                        <Grid item xs={4}>
                                             <NavButton navWord="By Genre" />
-                                        </Grid>
-                                        <Grid item xs={2}>
-                                            <NavButton navWord="By Language" />
                                         </Grid>
                                     </Grid>
                                 </Box>
