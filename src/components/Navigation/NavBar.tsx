@@ -64,8 +64,9 @@ const WebNavBar = () => {
                     </Grid>
                     {showMenu &&
                         <Box sx={{
-                            py: 5,
-                            backgroundImage: "linear-gradient(to bottom, #ffffff, #f7f8ff, #ebf2ff, #ddecff, #cbe8fe, #bbe3fd, #a9dffc, #95dbfa, #7fd5fb, #4dc0bb);"
+                            py: 7,
+                            backgroundColor: "white",
+                            borderBottom: "3px solid #031920"
                         }}>
                             <motion.div
                                 initial="hidden"
@@ -73,25 +74,30 @@ const WebNavBar = () => {
                                 variants={buttonVariants}
                                 transition={{ duration: 0.5 }}
                             >
-                                <Box sx={{ mx: 10, flexGrow: 1 }}>
+                                <Box sx={{ ml: 20, flexGrow: 1 }}>
                                     <Grid container spacing={15}>
-                                        <Grid item xs={3}>
-                                            <NavButton navWord="Newest" />
+
+                                        <Grid item xs={2}>
+                                            <NavButton navWord="By Date" />
                                         </Grid>
-                                        <Grid item xs={3}>
+                                        <Grid item xs={2}>
                                             <NavButton navWord="Most Popular" />
                                         </Grid>
-                                        <Grid item xs={3}>
+                                        <Grid item xs={2}>
                                             <NavButton navWord="By Author" />
                                         </Grid>
-                                        <Grid item xs={3}>
+                                        <Grid item xs={2}>
                                             <NavButton navWord="By Genre" />
+                                        </Grid>
+                                        <Grid item xs={2}>
+                                            <NavButton navWord="By Language" />
                                         </Grid>
                                     </Grid>
                                 </Box>
                             </motion.div>
                         </Box>
                     }
+
                 </motion.div>
             </AppBar>
         </div>
