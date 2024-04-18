@@ -4,6 +4,25 @@ interface Book {
    formats: BookImage;
    navWord: string
 }
+type NavButtonProps = {
+   navWord: string;
+}
+type BookDetailsProps = {
+   bookData: {
+      formats: { 'text/html': string; };
+      download_count: number;
+      languages: [];
+      copywrite: boolean
+   };
+};
+
+type BookAuthorProps = {
+   bookData: {
+      title: string,
+      authors: [];
+      translators: [];
+   };
+};
 type BookImage = {
    [key: string]: string;
    'image/jpeg': string;
@@ -15,6 +34,11 @@ interface SearchResult {
    formats: BookImage;
 }
 
-type NavButtonProps = {
-   navWord: string;
+interface Author {
+   name: string
 }
+interface Title {
+   title: string
+}
+
+

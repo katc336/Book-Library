@@ -1,7 +1,13 @@
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
 /* <---------------------------SEARCH BAR---------------------------> */
 .search-bar {
     border-radius: 20px;
-    border: 1px solid  #031920;
+    border: 1px solid #031920;
     box-shadow: 2px 2px 5px #032b32;
     height: 40px;
     width: 40vw;
@@ -15,11 +21,10 @@
     padding-bottom: 7px;
     color: white;
     border-radius: 50px;
-    border: 1px solid  #031920;
+    border: 1px solid #031920;
     background-image: linear-gradient(to right top, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47);
     transition: 0.5s;
     box-shadow: 2px 2px 5px #032b32;
-    ;
 }
 
 .search-button:hover {
@@ -30,6 +35,7 @@
     text-decoration: none;
     scale: 1.1;
 }
+
 /* <---------------------------BOOK BUTTON---------------------------> */
 .book-button {
     padding-right: 7px;
@@ -53,6 +59,7 @@
     text-decoration: none;
     scale: 1.1;
 }
+
 .nav-button {
     width: 160px;
     border-radius: 50px;
@@ -72,7 +79,8 @@
     box-shadow: 2px 2px 5px #032b32;
     display: block;
 }
-.nav-button:hover{
+
+.nav-button:hover {
     cursor: pointer;
     transition: .5s;
     transform: center;
@@ -97,29 +105,35 @@
 }
 
 .click:checked~.div1 {
-    border: 1px solid  #031920;
+    border: 1px solid #031920;
     transition: 0.5s;
-    transform: rotate(-45deg); /* Rotate div on checked*/
-    top: 18px; /*Positions the X shape to be directly on top of the check box*/
-    background-image: linear-gradient(to right top,#031920  #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47);
+    transform: rotate(-45deg);
+    /* Rotate div on checked*/
+    top: 18px;
+    /*Positions the X shape to be directly on top of the check box*/
+    background-image: linear-gradient(to right top, #031920 #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47);
 }
 
 .click:checked~.div2 {
     transition: 0s;
-    opacity: 0; /* Turn invisible*/
+    opacity: 0;
+    /* Turn invisible*/
 }
 
 .click:checked~.div3 {
-    border: 1px solid  #031920;
+    border: 1px solid #031920;
     transition: 0.5s;
-    transform: rotate(45deg); /* Rotate div on checked*/
-    top: 18px; /*Positions the X shape to be directly on top of the check box*/
-    background-image: linear-gradient(to right top, #031920, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47, #031920); /* Changes color to ornage on checked*/
+    transform: rotate(45deg);
+    /* Rotate div on checked*/
+    top: 18px;
+    /*Positions the X shape to be directly on top of the check box*/
+    background-image: linear-gradient(to right top, #031920, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47, #031920);
+    /* Changes color to ornage on checked*/
 }
 
 /* Lines for div */
 .div1 {
-    border: 1px solid  #031920;
+    border: 1px solid #031920;
     background-image: linear-gradient(to right top, #031920, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47, #031920);
     position: absolute;
     width: 45px;
@@ -130,7 +144,7 @@
 }
 
 .div2 {
-    border: 1px solid  #031920;
+    border: 1px solid #031920;
     background-image: linear-gradient(to right top, #031920, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47, #031920);
     position: absolute;
     width: 45px;
@@ -141,7 +155,7 @@
 }
 
 .div3 {
-    border: 1px solid  #031920;
+    border: 1px solid #031920;
     background-image: linear-gradient(to right top, #031920, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47, #031920);
     position: absolute;
     width: 45px;
@@ -149,4 +163,61 @@
     top: 35px;
     transition: 0.5s;
     border-radius: 50px;
+}
+
+/* <---------------------------SINGLE BOOK PAGE IMAGE---------------------------> */
+.single-book-img {
+    margin-left: 60%;
+    position: absolute;
+    top: 10%;
+    transform: translateY(10%);
+    z-index: 2,
+}
+
+/* <---------------------------DOWNLOAD BOX---------------------------> */
+.downloads {
+    padding: 5px;
+    border-radius: 5px;
+    width: 15%;
+    margin: 30px;
+    color: #E9E8E8;
+    background-color: #F5FAFC;
+    background-size: 400%;
+    transition: 0.5s;
+    color: #0a0600;
+    box-shadow: 3px 3px 3px #1b1701;
+}
+
+/* <---------------------------BOOK DETAIL BUTTON---------------------------> */
+.book-detail {
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid;
+}
+
+.book-detail-button {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding: 1px;
+    padding-bottom: 7px;
+    color: white;
+    border: 1px solid #031920;
+    border-radius: 100px;
+    background-image: linear-gradient(to right top, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47);
+    transition: 0.5s;
+    box-shadow: 2px 2px 5px #032b32;
+}
+
+.book-detail-button:hover {
+    cursor: pointer;
+    transition: .5s;
+    transform: center;
+    background-size: 100%;
+    text-decoration: none;
+    scale: 1.05;
+    background-position: right center;
 }
