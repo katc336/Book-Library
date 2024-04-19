@@ -34,6 +34,7 @@ type BookImage = {
 interface SearchResult {
    id: number;
    name: string;
+   title: string
    formats: BookImage;
 }
 

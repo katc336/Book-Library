@@ -1,20 +1,26 @@
 import Typography from "@mui/material/Typography"
 
 const TitleAndTranslator: React.FC<BookAuthorProps> = ({ bookData }) => {
-    const shortTitle = (data: Title) => {
-        //TO DO: Fix function to not cut off mid word
-        const bookTitle = data.title;
-        if (bookTitle.length <= 30) {
-            return bookTitle;
+    const shortenedTitle = (data: Title) => {
+        const bookTitle = data.title; 
+        const specialChars = [":", ";", "-"];
+        let indexToCut = bookTitle.length;
+        for (let char of specialChars) {
+            const index = bookTitle.indexOf(char);
+            if (index !== -1 && index < indexToCut) {
+                indexToCut = index;
+            }
+        }
+        if (indexToCut <= 30) {
+            return bookTitle.substring(0, indexToCut);
         } else {
-            let shortenedTitle = bookTitle.substring(0, 30);
-            return shortenedTitle + '...';
+            return bookTitle.substring(0, 30) + '...';
         }
     }
     return (
         <div>
             <Typography variant="h3">
-                {shortTitle(bookData)}
+                {shortenedTitle(bookData)}
             </Typography>
             <Typography
                 sx={{ mr: 20 }}
