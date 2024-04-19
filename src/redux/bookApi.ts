@@ -10,7 +10,7 @@ const booksApi = createApi({
     // API endpoints
     endpoints: (builder) => ({
         getBooks: builder.query({
-            query: () => `/books`
+            query: (page) => `/books?page=${page}`
         }),
         getSingleBook: builder.query({
             query: (id) => `/books/${id}`
