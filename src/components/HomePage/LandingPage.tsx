@@ -1,5 +1,4 @@
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 const LandingPage: React.FC = () => {

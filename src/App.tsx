@@ -1,14 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Homepage from './components/HomePage/Hompage'
-import NavBar from './components/Navigation/NavBar'
+import WebNavBar from './components/Navigation/WebNavBar'
 import SingleBookPage from './components/SingleBookPage/SingleBookPage'
 import SearchResults from './components/SearchedBookPage.tsx/SearchResult'
 
 const App: React.FC = () => {
   return (
     <div>
-      <NavBar />
+      <WebNavBar />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/book/:id" element={<SingleBookPage />} />

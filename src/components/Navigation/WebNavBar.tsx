@@ -9,6 +9,7 @@ import SearchBar from "./Search/SearchBar";
 
 const WebNavBar = () => {
     const [showMenu, setShowMenu] = useState(false);
+    const [showSearchBar, setShowSerachBar] = useState(true);
     const variants = {
         hidden: { height: 50 },
         visible: { height: 100 },
@@ -40,7 +41,9 @@ const WebNavBar = () => {
                             </Typography>
                         </Grid>
                         <Grid item xs={7}>
-                            <SearchBar />
+                            {
+                                showSearchBar && <SearchBar />
+                            }
                         </Grid>
                         <Grid item xs={1}>
                             <div className="container">
@@ -50,8 +53,10 @@ const WebNavBar = () => {
                                     onChange={(event) => {
                                         if (event.target.checked) {
                                             setShowMenu(true);
+                                            setShowSerachBar(false);
                                         } else {
                                             setShowMenu(false)
+                                            setShowSerachBar(true);
                                         }
                                     }}
                                 />
@@ -74,23 +79,29 @@ const WebNavBar = () => {
                                 variants={buttonVariants}
                                 transition={{ duration: 0.5 }}
                             >
-                                <Box sx={{ ml: 20, flexGrow: 1 }}>
-                                    <Grid container spacing={15}>
-                                        <Grid item xs={4}>
-                                            <NavButton navWord="By Date" />
+                                <Box sx={{ ml: 3 }}>
+                                    <Grid container spacing={3}>
+                                        <Grid item xs={2}>
+                                            <Typography
+                                                variant="h5"
+                                                sx={{ mt: 1.5, color: "#031920" }}>
+                                                Search By:
+                                            </Typography>
                                         </Grid>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={3}>
+                                            <NavButton navWord="Date" />
+                                        </Grid>
+                                        <Grid item xs={3}>
                                             <NavButton navWord="Most Popular" />
                                         </Grid>
-                                        <Grid item xs={4}>
-                                            <NavButton navWord="By Genre" />
+                                        <Grid item xs={3}>
+                                            <NavButton navWord="Genre" />
                                         </Grid>
                                     </Grid>
                                 </Box>
                             </motion.div>
                         </Box>
                     }
-
                 </motion.div>
             </AppBar>
         </div>
