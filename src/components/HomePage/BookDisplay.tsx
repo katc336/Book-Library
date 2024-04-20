@@ -3,15 +3,16 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { Typography } from '@mui/material';
 
 const BookDisplay: React.FC = () => {
     const [page, setPage] = useState(1)
     const { data, error, isLoading } = useGetBooksQuery(page);
     if (isLoading) {
-        return <div>Loading...</div>
+        return <Box sx={{ mt: 15 }}>Loading...</Box>
     }
     if (error) {
         console.error(error)
@@ -43,6 +44,7 @@ const BookDisplay: React.FC = () => {
                         sx={{ mt: 15, mx: 3 }}
                         key={book.id}>
                         <Stack direction="column">
+                        <motion.div whileHover={{ scale: 1.1 }}>
                                 <Card
                                     elevation={10}
                                     sx={{
@@ -67,6 +69,7 @@ const BookDisplay: React.FC = () => {
                                         </Typography>
                                     </Link>
                                 </Card>
+                                </motion.div>
                         </Stack>
                     </Box>
                 ))}
