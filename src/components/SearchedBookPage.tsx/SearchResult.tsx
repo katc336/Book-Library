@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Card from '@mui/material/Card';
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { useGetSearchQuery } from "../../redux/bookApi";
 
@@ -51,43 +52,47 @@ const SearchResults: React.FC = () => {
             }
             <Stack direction="row" flexWrap="wrap">
                 {data.results.map((book: SearchResult) => (
-                    <Stack direction="column">
-                        <Typography
-                            sx={{
-                                color: "#205375",
-                                textAlign: "center",
-                                mb: 2
-                            }}>
-                            {book.name}
-                        </Typography>
-                        <Box sx={{ m: 3 }}
-                            key={book.id}>
-                            <Card
-                                elevation={10}
+                    <motion.div
+                        key={book.id}
+                        whileHover={{ scale: 1.1 }}>
+                        <Stack direction="column">
+                            <Typography
                                 sx={{
-                                    py: 2,
-                                    width: "16vw",
-                                    height: 250
-                                }}
-                            >
-                                <Link to={`/book/${book.id}`} style={{ textDecoration: 'none' }}>
-                                    <Typography sx={{ mb: 1, textAlign: "center" }}>
-                                        {shortenedTitle(book)}
-                                    </Typography>
-                                    <Typography textAlign="center">
-                                        <img
-                                            style={{
-                                                maxWidth: "150px",
-                                                maxHeight: "220px",
-                                            }}
-                                            src={book.formats['image/jpeg']}
-                                            alt={book.name}
-                                        />
-                                    </Typography>
-                                </Link>
-                            </Card>
-                        </Box>
-                    </Stack>
+                                    color: "#205375",
+                                    textAlign: "center",
+                                    mb: 2
+                                }}>
+                                {book.name}
+                            </Typography>
+                            <Box sx={{ m: 3 }}
+                                key={book.id}>
+                                <Card
+                                    elevation={10}
+                                    sx={{
+                                        py: 2,
+                                        width: "16vw",
+                                        height: 250
+                                    }}
+                                >
+                                    <Link to={`/book/${book.id}`} style={{ textDecoration: 'none' }}>
+                                        <Typography sx={{ mb: 1, textAlign: "center" }}>
+                                            {shortenedTitle(book)}
+                                        </Typography>
+                                        <Typography textAlign="center">
+                                            <img
+                                                style={{
+                                                    maxWidth: "150px",
+                                                    maxHeight: "220px",
+                                                }}
+                                                src={book.formats['image/jpeg']}
+                                                alt={book.name}
+                                            />
+                                        </Typography>
+                                    </Link>
+                                </Card>
+                            </Box>
+                        </Stack>
+                    </motion.div>
                 ))
                 }
             </Stack>

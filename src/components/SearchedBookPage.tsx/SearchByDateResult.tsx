@@ -39,32 +39,39 @@ const SearchByDateResult: React.FC = () => {
         }
     }
     return (
-        <div>
-            <Typography>
-                {data.results.length === 0
-                    ? //If there are NO books with that search...
-                    <Alert
-                        sx={{ mt: 15 }}
-                        severity="info">
-                        <Typography variant="h4">
-                            Sorry, there authors matching your search of: {startDate}-{endDate}.
-                        </Typography>
-                    </Alert>
-                    : //If there ARE books with that name...
-                    <Typography
-                        sx={{ mt: 15, ml: 3 }}
-                        variant="h3">
-                        All Books With Authors Living during: {startDate}-{endDate}
+        <>
+            {data.results.length === 0
+                ? //If there are NO books with that topic...
+                <Alert
+                    sx={{ mt: 15 }}
+                    severity="info">
+                    <Typography variant="h4">
+                        Sorry, there is no books with authors from: {startDate}-{endDate}
                     </Typography>
-                }
-            </Typography>
+                </Alert>
+                : //If there ARE books with that topic...
+                <Typography
+                    sx={{ mt: 15, ml: 3 }}
+                    variant="h3">
+                    All Books with Authors Alive During:  {startDate}-{endDate}
+                </Typography>
+            }
             <Stack direction="row" flexWrap="wrap">
-                {data && data.results.map((book: Book) => (
-                    <Box
-                        sx={{ mt: 15, mx: 3 }}
-                        key={book.id}>
+                {data.results.map((book: SearchResult) => (
+                    <motion.div
+                        key={book.id}
+                        whileHover={{ scale: 1.1 }}>
                         <Stack direction="column">
-                            <motion.div whileHover={{ scale: 1.1 }}>
+                            <Typography
+                                sx={{
+                                    color: "#205375",
+                                    textAlign: "center",
+                                    mb: 2
+                                }}>
+                                {book.name}
+                            </Typography>
+                            <Box sx={{ m: 3 }}
+                                key={book.id}>
                                 <Card
                                     elevation={10}
                                     sx={{
@@ -84,17 +91,18 @@ const SearchByDateResult: React.FC = () => {
                                                     maxHeight: "220px",
                                                 }}
                                                 src={book.formats['image/jpeg']}
-                                                alt={book.title}
+                                                alt={book.name}
                                             />
                                         </Typography>
                                     </Link>
                                 </Card>
-                            </motion.div>
+                            </Box>
                         </Stack>
-                    </Box>
-                ))}
+                    </motion.div>
+                ))
+                }
             </Stack>
-        </div>
+        </>
     )
 }
 export default SearchByDateResult;
