@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -25,30 +26,31 @@ const SearchByTopic: React.FC = () => {
                     sx={{ my: 10, mx: 20 }}
                     container spacing={3}
                 >
-                    <Grid item xs={2}></Grid>
-                    <Grid item xs={7}>
+                    <Grid item xs={1} /> {/* spacing */}
+                    <Grid item xs={10}>
                         <Stack direction="row">
                             <Typography
                                 variant="h6"
                                 sx={{ mt: 1, color: "black", mr: 1 }}>
-                                Start:
+                                Topic:
                             </Typography>
                             <input
-                                className="search-date"
+                                className="search-bar"
                                 value={topic}
                                 onChange={(event) => {
                                     setTopic(event.target.value)
                                 }}
                             />
+                            <Box sx={{ ml: 2 }}>
+                                <button
+                                    onClick={(event) => handleSearch(event)}
+                                    className="search-button">
+                                    <Search />
+                                </button>
+                            </Box>
                         </Stack>
                     </Grid>
-                    <Grid item xs={3}>
-                        <button
-                            onClick={(event) => handleSearch(event)}
-                            className="search-button">
-                            <Search />
-                        </button>
-                    </Grid>
+                    <Grid item xs={1} />{/* spacing */}
                 </Grid>
             </form>
         </div>

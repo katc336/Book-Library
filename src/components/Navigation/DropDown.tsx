@@ -23,26 +23,38 @@ const DropDown: React.FC = () => {
                     </Grid>
                     <Grid item xs={3}>
                         <NavButton
-                            setNew={() => setShowDateSearch(true)}
+                            setNew={() => {
+                                setShowDateSearch(true);
+                                setShowPopularSearch(false);
+                                setShowTopicSearch(false);
+                            }}
                             navWord="Date" />
                     </Grid>
                     <Grid item xs={3}>
                         <NavButton
-                            setNew={() => setShowPopularSearch(true)}
+                            setNew={() => {
+                                setShowPopularSearch(true)
+                                setShowDateSearch(false);
+                                setShowTopicSearch(false)
+                            }}
                             navWord="Most Popular" />
                     </Grid>
                     <Grid item xs={3}>
                         <NavButton
-                            setNew={() => setShowTopicSearch(true)}
+                            setNew={() => {
+                                setShowTopicSearch(true);
+                                setShowDateSearch(false);
+                                setShowPopularSearch(false);
+                            }}
                             navWord="Topic" />
                     </Grid>
                 </Grid>
-                {showDateSearch && <SearchByDate /> }
+                {showDateSearch && <SearchByDate />}
                 {showPopularSearch &&
                     <Box>
                     </Box>
                 }
-                {showTopicSearch && <SearchByTopic /> }
+                {showTopicSearch && <SearchByTopic />}
             </Box>
         </div>
     )
