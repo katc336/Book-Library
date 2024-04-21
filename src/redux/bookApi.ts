@@ -19,14 +19,20 @@ const booksApi = createApi({
             query: (search) => `/books?search=${search}`
         }),
         getSearchByDate: builder.query({
-            query: ({start, end} ) => `/books?author_year_start=${start}&author_year_end=${end}`
+            query: ({ start, end }) => `/books?author_year_start=${start}&author_year_end=${end}`
+        }),
+        getSearchByTopic: builder.query({
+            query: (topic) => `/books?topic=${topic}`
         })
     })
 });
+
 export default booksApi;
+
 export const {
     useGetBooksQuery,
     useGetSingleBookQuery,
-    useGetSearchQuery, 
-    useGetSearchByDateQuery
+    useGetSearchQuery,
+    useGetSearchByDateQuery,
+    useGetSearchByTopicQuery
 } = booksApi;

@@ -4,11 +4,12 @@ import Typography from "@mui/material/Typography";
 import NavButton from "./NavButton";
 import { useState } from "react";
 import SearchByDate from "./Search/SearchByDate";
+import SearchByTopic from "./Search/SearchByTopic";
 
 const DropDown: React.FC = () => {
     const [showDateSearch, setShowDateSearch] = useState(false);
     const [showPopularSearch, setShowPopularSearch] = useState(false);
-    const [showGenreSearch, setShowGenreSearch] = useState(false);
+    const [showTopicSearch, setShowTopicSearch] = useState(false);
     return (
         <div>
             <Box sx={{ ml: 3 }}>
@@ -32,8 +33,8 @@ const DropDown: React.FC = () => {
                     </Grid>
                     <Grid item xs={3}>
                         <NavButton
-                            setNew={() => setShowGenreSearch(true)}
-                            navWord="Genre" />
+                            setNew={() => setShowTopicSearch(true)}
+                            navWord="Topic" />
                     </Grid>
                 </Grid>
                 {showDateSearch && <SearchByDate /> }
@@ -41,10 +42,7 @@ const DropDown: React.FC = () => {
                     <Box>
                     </Box>
                 }
-                {showGenreSearch &&
-                    <Box>
-                    </Box>
-                }
+                {showTopicSearch && <SearchByTopic /> }
             </Box>
         </div>
     )
