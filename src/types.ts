@@ -14,6 +14,7 @@ type BookDetailsProps = {
       download_count: number;
       languages: [];
       copywrite: boolean
+      results:[]
    };
 };
 
