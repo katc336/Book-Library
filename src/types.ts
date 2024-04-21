@@ -6,6 +6,7 @@ interface Book {
 }
 type NavButtonProps = {
    navWord: string;
+   setNew: () => void;
 }
 type BookDetailsProps = {
    bookData: {

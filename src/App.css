@@ -12,6 +12,14 @@ body {
     height: 40px;
     width: 40vw;
 }
+/* <---------------------------DATE BAR---------------------------> */
+.search-date {
+    border-radius: 20px;
+    border: 1px solid #031920;
+    box-shadow: 2px 2px 5px #032b32;
+    height: 40px;
+    width: 40vw;
+}
 
 /* <---------------------------SEARCH BUTTON---------------------------> */
 .search-button {

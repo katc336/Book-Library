@@ -4,10 +4,10 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import NavButton from "./NavButton";
 import SearchBar from "./Search/SearchBar";
+import DropDown from "./DropDown";
 
-const WebNavBar = () => {
+const WebNavBar: React.FC = () => {
     const [showMenu, setShowMenu] = useState(false);
     const [showSearchBar, setShowSerachBar] = useState(true);
     const variants = {
@@ -79,26 +79,7 @@ const WebNavBar = () => {
                                 variants={buttonVariants}
                                 transition={{ duration: 0.5 }}
                             >
-                                <Box sx={{ ml: 3 }}>
-                                    <Grid container spacing={3}>
-                                        <Grid item xs={2}>
-                                            <Typography
-                                                variant="h5"
-                                                sx={{ mt: 1.5, color: "#031920" }}>
-                                                Search By:
-                                            </Typography>
-                                        </Grid>
-                                        <Grid item xs={3}>
-                                            <NavButton navWord="Date" />
-                                        </Grid>
-                                        <Grid item xs={3}>
-                                            <NavButton navWord="Most Popular" />
-                                        </Grid>
-                                        <Grid item xs={3}>
-                                            <NavButton navWord="Genre" />
-                                        </Grid>
-                                    </Grid>
-                                </Box>
+                                <DropDown />
                             </motion.div>
                         </Box>
                     }
