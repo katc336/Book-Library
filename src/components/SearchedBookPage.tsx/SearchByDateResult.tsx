@@ -7,6 +7,7 @@ import { useGetSearchByDateQuery } from "../../redux/bookApi";
 import SortAlphabeticallyButton from './components/SortAlphabeticallyButton';
 import SortByPopularityButton from './components/SortByIdButton';
 import ResultBookDisplay from './components/ResultBookDisplay';
+import Loader from '../SharedComponents/Loader';
 
 const SearchByDateResult: React.FC = () => {
     const { start: startDate, end: endDate } = useParams();
@@ -15,7 +16,7 @@ const SearchByDateResult: React.FC = () => {
 
     const { data, isLoading, error } = useGetSearchByDateQuery({ start: startDate, end: endDate });
     if (isLoading) {
-        return <Box sx={{ mt: 15 }}>Loading...</Box>
+        return <Loader />
     }
     if (error) {
         console.error(error)

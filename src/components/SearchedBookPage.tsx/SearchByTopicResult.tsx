@@ -3,12 +3,13 @@ import Typography from "@mui/material/Typography";
 import { useParams } from "react-router-dom";
 import { useGetSearchByTopicQuery } from "../../redux/bookApi";
 import ResultBookDisplay from "./components/ResultBookDisplay";
+import Loader from "../SharedComponents/Loader";
 
 const SearchByTopicResult: React.FC = () => {
     const { topic } = useParams();
     const { data, isLoading, error } = useGetSearchByTopicQuery(topic);
     if (isLoading) {
-        return <div>Loading...</div>
+        return <Loader/>
     }
     if (error) {
         console.error(error)

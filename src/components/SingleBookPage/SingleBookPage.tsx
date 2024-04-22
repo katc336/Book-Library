@@ -6,12 +6,13 @@ import { useGetSingleBookQuery } from "../../redux/bookApi"
 import { useParams } from "react-router-dom";
 import BookDetails from "./components/BookDetails"
 import TitleAndTranslator from "./components/TitleAndTranslator"
+import Loader from "../SharedComponents/Loader"
 
 const SingleBook: React.FC = () => {
     const { id } = useParams();
     const { data, error, isLoading } = useGetSingleBookQuery(id);
     if (isLoading) {
-        return <div>Is loading...</div>
+        return <Loader />
     }
     if (error) {
         console.error(error)

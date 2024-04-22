@@ -9,6 +9,7 @@ import SortAlphabeticallyButton from './components/SortAlphabeticallyButton';
 import SortByIdButton from './components/SortByIdButton';
 import ResultBookDisplay from "./components/ResultBookDisplay";
 import SortClearButton from "./components/SortClearButton";
+import Loader from "../SharedComponents/Loader";
 
 
 const SearchResults: React.FC = () => {
@@ -35,7 +36,7 @@ const SearchResults: React.FC = () => {
         }
     }, [data, isLoading, error]);
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <Loader />;
     }
     const sortById = (data: any) => {
         // Make a copy of the results array from the data object
