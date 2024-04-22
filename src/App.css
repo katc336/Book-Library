@@ -254,3 +254,28 @@ body {
     scale: 1.05;
     background-position: right center;
 }
+/* <---------------------------CLEAR BUTTON---------------------------> */
+.clear-button {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding: 10px;
+    padding-bottom: 7px;
+    color: #031920;
+    border: 1px solid #031920;
+    border-radius: 10px;
+    background-image: linear-gradient(to right top, #f19bba, #f58dad, #f9809d, #fb718c, #fc6379, #ff606b, #ff5e5d, #ff5e4d, #ff6b40, #ff7931, #ff8720, #ff9600);
+    transition: 0.5s;
+    box-shadow: 2px 2px 5px #032b32;
+}
+
+.clear-button:hover {
+    cursor: pointer;
+    transition: .5s;
+    transform: center;
+    background-size: 100%;
+    text-decoration: none;
+    scale: 1.05;
+    background-position: right center;
+}

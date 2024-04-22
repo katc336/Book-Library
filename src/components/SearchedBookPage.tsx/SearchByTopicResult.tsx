@@ -1,10 +1,7 @@
 import Alert from "@mui/material/Alert";
-import Stack from '@mui/material/Stack';
 import Typography from "@mui/material/Typography";
 import { useParams } from "react-router-dom";
 import { useGetSearchByTopicQuery } from "../../redux/bookApi";
-import SortAlphabeticallyButton from './components/SortAlphabeticallyButton';
-import SortByPopularityButton from './components/SortByPopularityButton';
 import ResultBookDisplay from "./components/ResultBookDisplay";
 
 const SearchByTopicResult: React.FC = () => {
@@ -30,16 +27,16 @@ const SearchByTopicResult: React.FC = () => {
                 </Alert>
                 : //If there ARE books with that topic...
                 <div>
-                <Typography
-                    sx={{ mt: 15, ml: 3 }}
-                    variant="h3">
-                    All Books Under the Topic of: "{topic}"
-                </Typography>
-                 <Stack direction="row">
-                 <SortByPopularityButton />
-                 <SortAlphabeticallyButton />
-             </Stack>
-             </div>
+                    <Typography
+                        sx={{ mt: 15, ml: 3 }}
+                        variant="h3">
+                        All Books Under the Topic of: "{topic}"
+                    </Typography>
+                    {/* <Stack direction="row">
+                        <SortByPopularityButton />
+                        <SortAlphabeticallyButton />
+                    </Stack> */}
+                </div>
             }
             <ResultBookDisplay bookData={data} />
         </>

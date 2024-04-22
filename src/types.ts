@@ -12,9 +12,9 @@ type BookDetailsProps = {
    bookData: {
       formats: { 'text/html': string; };
       download_count: number;
-      languages: [];
+      languages: string[];
       copywrite: boolean
-      results:[]
+      results:any[];
    };
 };
 
@@ -47,4 +47,14 @@ interface Title {
    title: string
 }
 
+type SortButtonProps = {
+   click: () => void;
+}
+
+interface PopularityData {
+   results:any[];
+ }
+ interface TitleData {
+   results:any[];
+ }
 

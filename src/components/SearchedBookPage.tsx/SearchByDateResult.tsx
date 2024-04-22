@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import { useParams } from "react-router-dom";
 import { useGetSearchByDateQuery } from "../../redux/bookApi";
 import SortAlphabeticallyButton from './components/SortAlphabeticallyButton';
-import SortByPopularityButton from './components/SortByPopularityButton';
+import SortByPopularityButton from './components/SortByIdButton';
 import ResultBookDisplay from './components/ResultBookDisplay';
 
 const SearchByDateResult: React.FC = () => {
@@ -41,10 +41,10 @@ const SearchByDateResult: React.FC = () => {
                         variant="h3">
                         All Books with Authors Alive During:  {startDate}-{endDate}
                     </Typography>
-                    <Stack direction="row">
+                    {/* <Stack direction="row">
                         <SortByPopularityButton />
                         <SortAlphabeticallyButton />
-                    </Stack>
+                    </Stack> */}
                 </div>
             }
             <ResultBookDisplay bookData={data} />

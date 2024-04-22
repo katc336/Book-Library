@@ -1,17 +1,17 @@
 import Typography from '@mui/material/Typography';
 
-const SortAlphabeticallyButton: React.FC<SortButtonProps> = ({ click }) => {
+const SortClearButton: React.FC<SortButtonProps> = ({ click }) => {
 
     return (
         <div>
             <button
                 onClick={click}
-                className="sort-button">
+                className="clear-button">
                 <Typography variant="h6">
-                    Sort Alphabetically
+                    Clear
                 </Typography>
             </button>
         </div>
     )
 }
-export default SortAlphabeticallyButton
+export default SortClearButton
