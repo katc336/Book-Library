@@ -12,17 +12,23 @@ const booksApi = createApi({
         getBooks: builder.query({
             query: (page) => `/books?page=${page}`
         }),
+        getByAscending: builder.query({
+            query: (page) => `/books?page=${page}&sort=ascending`
+        }),
+        getByDecending: builder.query({
+            query: (page) => `/books?page=${page}&sort=descending`
+        }),
         getSingleBook: builder.query({
             query: (id) => `/books/${id}`
         }),
         getSearch: builder.query({
-            query: (search) => `/books?search=${search}`
+            query: ({search, page}) => `/books?page=${page}&search=${search}`
         }),
         getSearchByDate: builder.query({
-            query: ({ start, end }) => `/books?author_year_start=${start}&author_year_end=${end}`
+            query: ({ start, end, page }) => `/books?page=${page}&author_year_start=${start}&author_year_end=${end}`
         }),
         getSearchByTopic: builder.query({
-            query: (topic) => `/books?topic=${topic}`
+            query: ({topic, page}) => `/books?page=${page}&topic=${topic}`
         })
     })
 });
@@ -31,6 +37,8 @@ export default booksApi;
 
 export const {
     useGetBooksQuery,
+    useGetByAscendingQuery,
+    useGetByDecendingQuery,
     useGetSingleBookQuery,
     useGetSearchQuery,
     useGetSearchByDateQuery,

@@ -4,10 +4,12 @@ import { useState, useEffect } from 'react';
 import TitleAndSort from './components/TitleAndSort';
 import ResultBookDisplay from './components/ResultBookDisplay';
 import Loader from '../SharedComponents/Loader';
+import PreviousAndNextButtons from "./components/PreviousAndNextButtons";
 
 const SearchByDateResult: React.FC = () => {
+    const [page, setPage] = useState(1)
     const { start: startDate, end: endDate } = useParams();
-    const { data, isLoading, error } = useGetSearchByDateQuery({ start: startDate, end: endDate });
+    const { data, isLoading, error } = useGetSearchByDateQuery({ start: startDate, end: endDate, page: page });
     const [bookData, setBookData] = useState({
         formats: { 'text/html': " " },
         download_count: 0,
@@ -67,6 +69,10 @@ const SearchByDateResult: React.FC = () => {
                 button2={() => sortAlphabetically(bookData)}
                 button3={() => sortClear(data)} />
             <ResultBookDisplay bookData={bookData} />
+            <PreviousAndNextButtons
+                previous={() => setPage(page - 1)}
+                next={() => setPage(page + 1)}
+            />
         </>
     )
 }

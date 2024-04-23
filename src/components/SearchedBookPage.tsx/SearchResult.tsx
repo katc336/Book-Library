@@ -4,9 +4,11 @@ import { useGetSearchQuery } from "../../redux/bookApi";
 import ResultBookDisplay from "./components/ResultBookDisplay";
 import Loader from "../SharedComponents/Loader";
 import TitleAndSort from "./components/TitleAndSort";
+import PreviousAndNextButtons from "./components/PreviousAndNextButtons";
 
 
 const SearchResults: React.FC = () => {
+    const [page, setPage] = useState(1)
     const { searchBook } = useParams();
     const [bookData, setBookData] = useState({
         formats: { 'text/html': " " },
@@ -15,7 +17,7 @@ const SearchResults: React.FC = () => {
         copywrite: false,
         results: []
     });
-    const { data, isLoading, error } = useGetSearchQuery(searchBook);
+    const { data, isLoading, error } = useGetSearchQuery({ search: searchBook, page: page });
     useEffect(() => {
         if (isLoading) {
             return;
@@ -68,6 +70,10 @@ const SearchResults: React.FC = () => {
                 button2={() => sortAlphabetically(bookData)}
                 button3={() => sortClear(data)} />
             <ResultBookDisplay bookData={bookData} />
+            <PreviousAndNextButtons
+                previous={() => setPage(page - 1)}
+                next={() => setPage(page + 1)}
+            />
         </>
     )
 }

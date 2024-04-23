@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import TitleAndSort from "./components/TitleAndSort";
 import ResultBookDisplay from "./components/ResultBookDisplay";
 import Loader from "../SharedComponents/Loader";
+import PreviousAndNextButtons from "./components/PreviousAndNextButtons";
 
 const SearchByTopicResult: React.FC = () => {
+    const [page, setPage] = useState(1)
     const { topic } = useParams();
     const [bookData, setBookData] = useState({
         formats: { 'text/html': " " },
@@ -14,7 +16,7 @@ const SearchByTopicResult: React.FC = () => {
         copywrite: false,
         results: []
     });
-    const { data, isLoading, error } = useGetSearchByTopicQuery(topic);
+    const { data, isLoading, error } = useGetSearchByTopicQuery({topic, page});
     useEffect(() => {
         if (isLoading) {
             return;
@@ -67,6 +69,10 @@ const SearchByTopicResult: React.FC = () => {
                 button2={() => sortAlphabetically(bookData)}
                 button3={() => sortClear(data)} />
             <ResultBookDisplay bookData={bookData} />
+            <PreviousAndNextButtons
+                previous={() => setPage(page - 1)}
+                next={() => setPage(page + 1)}
+            />
         </>
     )
 }

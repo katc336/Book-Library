@@ -72,4 +72,8 @@ type TitleSort = {
    button2: () => void;
    button3: () => void;
 }
+type NextPrevProps = {
+   previous:() => void;
+   next: () => void;
+}
 
