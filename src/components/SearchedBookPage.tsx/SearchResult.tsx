@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Alert from "@mui/material/Alert";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
 import { useParams } from "react-router-dom";
 import { useGetSearchQuery } from "../../redux/bookApi";
-import SortAlphabeticallyButton from './components/SortAlphabeticallyButton';
-import SortByIdButton from './components/SortByIdButton';
 import ResultBookDisplay from "./components/ResultBookDisplay";
-import SortClearButton from "./components/SortClearButton";
 import Loader from "../SharedComponents/Loader";
+import TitleAndSort from "./components/TitleAndSort";
 
 
 const SearchResults: React.FC = () => {
@@ -21,9 +15,7 @@ const SearchResults: React.FC = () => {
         copywrite: false,
         results: []
     });
-    const [showClear, setShowClear] = useState(false);
     const { data, isLoading, error } = useGetSearchQuery(searchBook);
-
     useEffect(() => {
         if (isLoading) {
             return;
@@ -46,9 +38,8 @@ const SearchResults: React.FC = () => {
         // Create a new object with the sorted results
         const sortedData = { ...data, results }; // Update the results array
         setBookData(sortedData);
-        setShowClear(true);
     };
-    
+
     const sortAlphabetically = (data: any) => {
         // Make a copy of the results array from the data object
         let results = data.results.slice();
@@ -61,59 +52,21 @@ const SearchResults: React.FC = () => {
         // Create a new object with the sorted results
         const sortedData = { ...data, results }; // Update the results array
         setBookData(sortedData);
-        setShowClear(true);
     };
     const sortClear = (data: any) => {
         setBookData(data);
-        setShowClear(false);
     };
     console.log(bookData)
     return (
         <>
-            {bookData.results && bookData.results.length === 0 ?
-                <Alert sx={{ mt: 15 }} severity="info">
-                    <Typography variant="h4">
-                        Sorry, there are no books matching your search of: {searchBook}.
-                    </Typography>
-                </Alert>
-                : //If there ARE books with that name...
-                <div>
-                    <Grid
-                        sx={{ mt: 15, mx: 3 }}
-                        container>
-                        <Grid item xs={6}>
-                            <Typography variant="h3">
-                                All Books With: "{searchBook}"
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={3.5} />{/* Adds spacing */}
-                        <Grid item xs={2}>
-                            <Typography
-                                variant="h6"
-                                sx={{ p: 1, textAlign: "center", backgroundColor: "#F5FAFC", border: "2px solid #114762", borderRadius: "50px" }}>
-                                Total Results: {data.count}
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                    <Grid
-                        sx={{ mt: 15, mx: 3 }}
-                        container>
-                        <Grid item xs={6}>
-                            <Typography sx={{ mx: 3, fontWeight: "bold", fontStyle: "italic" }}>
-                                Note: Books are automatically sorted by most popular
-                            </Typography>
-                            <Stack direction="row">
-                                <SortByIdButton click={() => sortById(bookData)} />
-                                <SortAlphabeticallyButton click={() => sortAlphabetically(bookData)} />
-                            </Stack>
-                        </Grid>
-                        <Grid item xs={3.5} />{/* Adds spacing */}
-                        <Grid item xs={2}>
-                            {showClear && <SortClearButton click={() => sortClear(data)} />}
-                        </Grid>
-                    </Grid>
-                </div>
-            }
+            <TitleAndSort
+                bookData={bookData}
+                data={data}
+                search={searchBook}
+                search2={null}
+                button1={() => sortById(bookData)}
+                button2={() => sortAlphabetically(bookData)}
+                button3={() => sortClear(data)} />
             <ResultBookDisplay bookData={bookData} />
         </>
     )

@@ -14,7 +14,7 @@ type BookDetailsProps = {
       download_count: number;
       languages: string[];
       copywrite: boolean
-      results:any[];
+      results: any[];
    };
 };
 
@@ -52,9 +52,24 @@ type SortButtonProps = {
 }
 
 interface PopularityData {
-   results:any[];
- }
- interface TitleData {
-   results:any[];
- }
+   results: any[];
+}
+interface TitleData {
+   results: any[];
+}
+
+type TitleSort = {
+   bookData: {
+      results: any [];
+   };
+   data: {
+      count: number;
+      results: any [];
+   };
+   search: any;
+   search2: any;
+   button1: () => void;
+   button2: () => void;
+   button3: () => void;
+}
 
