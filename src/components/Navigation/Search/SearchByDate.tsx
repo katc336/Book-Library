@@ -35,7 +35,7 @@ const SearchByDate = () => {
                                 Start:
                             </Typography>
                             <input
-                                className="search-date"
+                                className="search-number"
                                 value={startDate}
                                 onChange={(event) => {
                                     setStartDate(event.target.value)
@@ -51,7 +51,7 @@ const SearchByDate = () => {
                                 End:
                             </Typography>
                             <input
-                                className="search-date"
+                                className="search-number"
                                 value={endDate}
                                 onChange={(event) => {
                                     setEndDate(event.target.value)

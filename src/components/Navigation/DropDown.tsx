@@ -6,10 +6,11 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import SearchByDate from "./Search/SearchByDate";
 import SearchByTopic from "./Search/SearchByTopic";
+import SearchByDownloadCount from "./Search/SearchByDownloadCount";
 
 const DropDown: React.FC = () => {
     const [showDateSearch, setShowDateSearch] = useState(false);
-    const [showPopularSearch, setShowPopularSearch] = useState(false);
+    const [showDownloadSearch, setShowDownloadSearch] = useState(false);
     const [showTopicSearch, setShowTopicSearch] = useState(false);
     const buttonVariants = {
         hidden: { opacity: 0, y: -50 },
@@ -30,7 +31,7 @@ const DropDown: React.FC = () => {
                         <NavButton
                             setNew={() => {
                                 setShowDateSearch(true);
-                                setShowPopularSearch(false);
+                                setShowDownloadSearch(false);
                                 setShowTopicSearch(false);
                             }}
                             navWord="Date" />
@@ -38,18 +39,18 @@ const DropDown: React.FC = () => {
                     <Grid item xs={3}>
                         <NavButton
                             setNew={() => {
-                                setShowPopularSearch(true)
+                                setShowDownloadSearch(true)
                                 setShowDateSearch(false);
                                 setShowTopicSearch(false)
                             }}
-                            navWord="Most Popular" />
+                            navWord="Download Number" />
                     </Grid>
                     <Grid item xs={3}>
                         <NavButton
                             setNew={() => {
                                 setShowTopicSearch(true);
                                 setShowDateSearch(false);
-                                setShowPopularSearch(false);
+                                setShowDownloadSearch(false);
                             }}
                             navWord="Topic" />
                     </Grid>
@@ -62,10 +63,17 @@ const DropDown: React.FC = () => {
                         transition={{ duration: 0.5 }}
                     >
                         <SearchByDate />
-                    </motion.div>}
-                {showPopularSearch &&
-                    <Box>
-                    </Box>
+                    </motion.div>
+                }
+                {showDownloadSearch &&
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={buttonVariants}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <SearchByDownloadCount />
+                    </motion.div>
                 }
                 {showTopicSearch &&
                     <motion.div

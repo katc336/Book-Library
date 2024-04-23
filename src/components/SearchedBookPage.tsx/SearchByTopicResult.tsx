@@ -1,5 +1,3 @@
-import Alert from "@mui/material/Alert";
-import Typography from "@mui/material/Typography";
 import { useParams } from "react-router-dom";
 import { useGetSearchByTopicQuery } from "../../redux/bookApi";
 import { useState, useEffect } from "react";
