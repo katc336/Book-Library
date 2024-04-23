@@ -8,7 +8,7 @@ const SortAlphabeticallyButton: React.FC<SortButtonProps> = ({ click }) => {
                 onClick={click}
                 className="sort-button">
                 <Typography variant="h6">
-                    Sort Alphabetically
+                    Sort Page Alphabetically
                 </Typography>
             </button>
         </div>

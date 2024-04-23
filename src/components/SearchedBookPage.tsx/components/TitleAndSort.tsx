@@ -38,7 +38,7 @@ const TitleAndSort: React.FC<TitleSort> = ({ bookData, data, search, search2, bu
                         container>
                         <Grid item xs={6}>
                             <Typography sx={{ mx: 3, fontWeight: "bold", fontStyle: "italic" }}>
-                                Note: Books are automatically sorted by most popular
+                                Note: Books are automatically sorted by popularity
                             </Typography>
                             <Stack direction="row">
                                 <SortByIdButton click={button1} />
