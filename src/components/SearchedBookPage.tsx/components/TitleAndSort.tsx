@@ -46,7 +46,9 @@ const TitleAndSort: React.FC<TitleSort> = ({ bookData, data, search, search2, bu
                             </Stack>
                         </Grid>
                         <Grid item xs={3.5} />{/* Adds spacing */}
-                        <Grid item xs={2}>
+                        <Grid
+                        sx={{ mt: 2.5 }}
+                        item xs={2}>
                             <SortClearButton click={button3} />
                         </Grid>
                     </Grid>
