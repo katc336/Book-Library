@@ -3,6 +3,7 @@ import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { Link } from "react-router-dom";
+import Languages from "./Languages";
 
 const BookDetails: React.FC<BookDetailsProps> = ({ bookData }) => {
     return (
@@ -21,7 +22,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({ bookData }) => {
                             </Stack>
                         </button>
                     </Link>
-                    <Box className="book-detail"/>
+                    <Box className="book-detail" />
                     <Box className="book-detail">
                         <Typography
                             sx={{ mx: 3, my: 1 }}
@@ -42,19 +43,12 @@ const BookDetails: React.FC<BookDetailsProps> = ({ bookData }) => {
                         </Typography>
                     </Box>
                     <Box className="book-detail">
-                        {/* TO DO: Find other solution for language, and to show other languages */}
-                        {bookData.languages.map((language) => (
-                            <Typography
-                                sx={{ mx: 3, my: 1 }}
-                                variant="h6">
-                                {language === "en"
-                                    ?
-                                    <div>English</div>
-                                    :
-                                    <div />
-                                }
-                            </Typography>
-                        ))}
+                        <Typography 
+                         sx={{mx: 3,}}
+                        variant="h6">
+                            Languages:
+                        </Typography>
+                        <Languages bookData={bookData} />
                     </Box>
                 </Stack>
             </Box>
