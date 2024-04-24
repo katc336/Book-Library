@@ -1,3 +1,4 @@
+import Alert from "@mui/material/Alert";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -8,17 +9,38 @@ import { useNavigate } from "react-router-dom";
 const SearchByDate = () => {
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
+    const [emptyError, setEmptyError] = useState(false);
+    const [numberOrderError, setNumberOrderError] = useState(false);
+    const [onlyNumbersError, setOnlyNumberError] = useState(false);
 
     const navigate = useNavigate();
 
     const handleSearch = (event: React.MouseEvent<HTMLButtonElement>) => {
+        const isNumeric = (value: string) => /^\d+$/.test(value); //Check to see if the value is a number...
         if (startDate.length === 0 || endDate.length === 0) {
-            event.preventDefault()
-            console.log("No searched item")
+            event.preventDefault();
+            setEmptyError(true);
+            setNumberOrderError(false);
+            setOnlyNumberError(false);
+        } else if (!isNumeric(startDate) || !isNumeric(endDate)
+            || startDate.length !== 4 || endDate.length !== 4) {
+            event.preventDefault();
+            setEmptyError(false);
+            setNumberOrderError(false);
+            setOnlyNumberError(true);
+        } else if (startDate > endDate) {
+            event.preventDefault();
+            setEmptyError(false);
+            setNumberOrderError(true);
+            setOnlyNumberError(false);
         } else {
-            navigate(`search_book/${startDate}/${endDate}`)
+            setEmptyError(false);
+            setNumberOrderError(false);
+            setOnlyNumberError(false);
+            navigate(`search_book/${startDate}/${endDate}`);
         }
     }
+
     return (
         <div>
             <form>
@@ -68,6 +90,21 @@ const SearchByDate = () => {
                     </Grid>
                 </Grid>
             </form>
+            {emptyError &&
+                <Alert sx={{ mx: 50 }} severity="error">
+                    Please fill in both fields with a date.
+                </Alert>
+            }
+            {numberOrderError &&
+                <Alert sx={{ mx: 50 }} severity="error">
+                    Please make sure the start date is before the end date.
+                </Alert>
+            }
+            {onlyNumbersError &&
+                <Alert sx={{ mx: 50 }} severity="error">
+                    Please only enter dates of years.
+                </Alert>
+            }
         </div>
     )
 }

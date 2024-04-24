@@ -1,3 +1,4 @@
+import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
@@ -8,14 +9,20 @@ import { useNavigate } from "react-router-dom";
 
 const SearchByTopic: React.FC = () => {
     const [topic, setTopic] = useState("");
+    const [lengthError, setLengthError] = useState(false);
 
     const navigate = useNavigate();
 
     const handleSearch = (event: React.MouseEvent<HTMLButtonElement>) => {
         if (topic.length === 0) {
-            event.preventDefault()
+            event.preventDefault();
             console.log("No searched item")
-        } else {
+        } else if (topic.length > 50) {
+            event.preventDefault();
+            setLengthError(true);
+        }
+        else {
+            setLengthError(false);
             navigate(`/search_book/topic/${topic}`)
         }
     }
@@ -53,6 +60,11 @@ const SearchByTopic: React.FC = () => {
                     <Grid item xs={1} />{/* spacing */}
                 </Grid>
             </form>
+            {lengthError &&
+                <Alert sx={{ mx: 50 }} severity="error">
+                    Please shorten your search to under 50 characters.
+                </Alert>
+            }
         </div>
     )
 }
