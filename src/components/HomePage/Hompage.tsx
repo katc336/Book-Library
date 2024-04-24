@@ -1,4 +1,5 @@
 import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
 import { useState } from "react"
 import LandingPage from "./components/LandingPage"
 import AscendingBookDisplay from "./components/AscendingBookDisplay"
@@ -12,24 +13,28 @@ const Homepage: React.FC = () => {
         <div>
             <Box sx={{ mt: 10 }}>
                 <LandingPage />
-                <button 
-                className="sort-button"
-                onClick={() => {
-                    setShowPopular(true);
-                    setShowAscending(false);
-                    setShowDescending(false);
-                }}>
-                    Show Most Popular
+                <button
+                    className="sort-button"
+                    onClick={() => {
+                        setShowPopular(true);
+                        setShowAscending(false);
+                        setShowDescending(false);
+                    }}>
+                    <Typography variant="h6">
+                        Show Most Popular
+                    </Typography>
                 </button>
-                <button 
-                className="sort-button"
-                onClick={() => {
-                    setShowPopular(false);
-                    setShowAscending(true);
-                    setShowDescending(false);
-                }}
+                <button
+                    className="sort-button"
+                    onClick={() => {
+                        setShowPopular(false);
+                        setShowAscending(true);
+                        setShowDescending(false);
+                    }}
                 >
-                    Show by Ascending ID Number
+                    <Typography variant="h6">
+                        Show by Ascending ID Number
+                    </Typography>
                 </button>
                 <button
                     className="sort-button"
@@ -38,7 +43,9 @@ const Homepage: React.FC = () => {
                         setShowAscending(false);
                         setShowDescending(true);
                     }}>
-                    Show by Descending ID Number
+                    <Typography variant="h6">
+                        Show by Descending ID Number
+                    </Typography>
                 </button>
                 {showPopular && <PopularBookDisplay />}
                 {showAscending && <AscendingBookDisplay />}
