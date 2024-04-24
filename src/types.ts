@@ -3,6 +3,7 @@ interface Book {
    title: string;
    formats: BookImage;
    navWord: string
+   subjects: any[];
 }
 type NavButtonProps = {
    navWord: string;
@@ -15,6 +16,7 @@ type BookDetailsProps = {
       languages: string[];
       copywrite: boolean
       results: any[];
+      subjects: any[];
    };
 };
 
