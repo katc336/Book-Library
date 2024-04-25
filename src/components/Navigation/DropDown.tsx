@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import SearchByDate from "./Search/SearchByDate";
 import SearchByTopic from "./Search/SearchByTopic";
+import { useNavigate } from "react-router-dom";
 
 const DropDown: React.FC = () => {
     const [showDateSearch, setShowDateSearch] = useState(false);
@@ -14,6 +15,7 @@ const DropDown: React.FC = () => {
         hidden: { opacity: 0, y: -50 },
         visible: { opacity: 1, y: 0 },
     };
+    const navigate = useNavigate();
     return (
         <div>
             <Box sx={{ ml: 3 }}>
@@ -28,16 +30,14 @@ const DropDown: React.FC = () => {
                     <Grid item xs={2}>
                         <NavButton
                             setNew={() => {
-                                setShowTopicSearch(false);
-                                setShowDateSearch(false);
+                                navigate(`/search_book/topic/${"fiction"}`)
                             }}
                             navWord="Fiction" />
                     </Grid>
                     <Grid item xs={2}>
                         <NavButton
                             setNew={() => {
-                                setShowTopicSearch(false);
-                                setShowDateSearch(false);
+                                navigate(`/search_book/topic/${"nonfiction"}`)
                             }}
                             navWord="Non Fiction" />
                     </Grid>
