@@ -6,7 +6,7 @@ const NavButton: React.FC<NavButtonProps> = ({ navWord, setNew }) => {
             <button
                 onClick={setNew}
                 className="nav-button">
-                <Typography sx={{ color: "#031920" }}>
+                <Typography sx={{ color: "#100937" }}>
                     {navWord}
                 </Typography>
             </button>

@@ -35,7 +35,7 @@ const WebNavBar: React.FC = () => {
                     <Grid container>
                         <Grid item xs={4}>
                             <Typography
-                                sx={{ mx: 3, color: "#031920", mr: "10%" }}
+                                sx={{ mx: 3, color: "#100937", mr: "10%" }}
                                 variant="h3">
                                 Gutenberg Library
                             </Typography>
@@ -71,7 +71,7 @@ const WebNavBar: React.FC = () => {
                         <Box sx={{
                             py: 7,
                             backgroundColor: "white",
-                            borderBottom: "3px solid #031920"
+                            borderBottom: "3px solid #100937"
                         }}>
                             <motion.div
                                 initial="hidden"

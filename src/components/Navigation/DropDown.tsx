@@ -21,7 +21,7 @@ const DropDown: React.FC = () => {
                     <Grid item xs={2}>
                         <Typography
                             variant="h5"
-                            sx={{ mt: 1.5, color: "#031920" }}>
+                            sx={{ mt: 1.5, color: "#100937" }}>
                             Search By:
                         </Typography>
                     </Grid>
