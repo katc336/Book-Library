@@ -5,6 +5,7 @@ import TitleAndSort from './components/TitleAndSort';
 import ResultBookDisplay from './components/ResultBookDisplay';
 import Loader from '../SharedComponents/Loader';
 import PreviousAndNextButtons from "./components/PreviousAndNextButtons";
+import SortByDownload from "./components/SortByDownload";
 
 const SearchByDateResult: React.FC = () => {
     const [page, setPage] = useState(1)
@@ -78,6 +79,16 @@ const SearchByDateResult: React.FC = () => {
             setLastSort("nonFictionButton");
         }
     };
+    const sortByDownloadCount = (data: any, min: number, max: number) => {
+        let results = data.results.slice();
+        results = results.sort((a: any, b: any) => b.download_count - a.download_count)
+            .filter((item: any) => item.download_count >= min && item.download_count <= max);
+        const sortedData = { ...data, results };
+        setBookData(sortedData);
+    };
+    const handleSortByDownload = (min: number, max: number) => {
+        sortByDownloadCount(bookData, min, max);
+    };
     return (
         <>
             <TitleAndSort
@@ -91,6 +102,7 @@ const SearchByDateResult: React.FC = () => {
                 fictionButton={() => findFiction()}
                 nonFictionButton={() => findNonFiction()}
             />
+            <SortByDownload handleSortByDownload={handleSortByDownload} />
             <ResultBookDisplay bookData={bookData} />
             <PreviousAndNextButtons
                 previous={() => setPage(page - 1)}

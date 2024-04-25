@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 
-const SortFiction: React.FC<SortButtonProps> = ({ click }) => {
+const SortButton: React.FC<SortButtonProps> = ({ click, content }) => {
 
     return (
         <div>
@@ -8,10 +8,10 @@ const SortFiction: React.FC<SortButtonProps> = ({ click }) => {
                 onClick={click}
                 className="sort-button">
                 <Typography variant="h6">
-                    Fiction
+                  {content}
                 </Typography>
             </button>
         </div>
     )
 }
-export default SortFiction
+export default SortButton

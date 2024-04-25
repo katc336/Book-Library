@@ -2,12 +2,11 @@ import Alert from "@mui/material/Alert";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
-import SortAlphabeticallyButton from '../components/SortAlphabeticallyButton';
-import SortByIdButton from '../components/SortByIdButton';
 import SortClearButton from "../components/SortClearButton";
-import SortFiction from "./SortFiction";
-import SortNonFiction from "./SortNonFiction";
+import SortButton from "./SortButton";
+
 const TitleAndSort: React.FC<TitleSort> = ({ bookData, data, search, search2, idButton, alphabetButton, clearButton, fictionButton, nonFictionButton }) => {
+
     return (
         <div>
             {bookData.results && bookData.results.length === 0 ?
@@ -36,25 +35,39 @@ const TitleAndSort: React.FC<TitleSort> = ({ bookData, data, search, search2, id
                     <Grid
                         sx={{ mt: 15, mx: 3 }}
                         container>
-                        <Grid item xs={6}>
+                        <Grid item xs={8}>
                             <Typography sx={{ mx: 3, fontWeight: "bold", fontStyle: "italic" }}>
                                 Note: Books are automatically sorted by popularity
                             </Typography>
                             <Stack direction="row">
-                                <SortByIdButton click={idButton} />
-                                <SortAlphabeticallyButton click={alphabetButton} />
+                                <SortButton
+                                    click={idButton}
+                                    content="Sort Page By ID"
+                                />
+                                <SortButton
+                                    click={alphabetButton}
+                                    content="Sort Page Alphabetically"
+                                />
                             </Stack>
                         </Grid>
-                        <Grid item xs={3.5} />{/* Adds spacing */}
+                        <Grid item xs={2} />{/* Adds spacing */}
                         <Grid
                             sx={{ mt: 2.5 }}
                             item xs={2}>
-                            <SortClearButton click={clearButton} />
+                            <SortClearButton
+                                click={clearButton}
+                                content="Clear" />
                         </Grid>
                         <Grid item xs={12}>
                             <Stack direction="row">
-                                <SortFiction click={fictionButton} />
-                                <SortNonFiction click={nonFictionButton} />
+                                <SortButton
+                                    click={fictionButton}
+                                    content="Fiction"
+                                />
+                                <SortButton
+                                    click={nonFictionButton}
+                                    content="Non Fiction"
+                                />
                             </Stack>
                         </Grid>
                     </Grid>

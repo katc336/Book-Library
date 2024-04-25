@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 
-const SortClearButton: React.FC<SortButtonProps> = ({ click }) => {
+const SortClearButton: React.FC<SortButtonProps> = ({ click, content }) => {
 
     return (
         <div>
@@ -8,7 +8,7 @@ const SortClearButton: React.FC<SortButtonProps> = ({ click }) => {
                 onClick={click}
                 className="clear-button">
                 <Typography variant="h6">
-                    Clear
+                    {content}
                 </Typography>
             </button>
         </div>

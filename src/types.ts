@@ -50,6 +50,7 @@ interface Title {
 
 type SortButtonProps = {
    click: () => void;
+   content: string
 }
 
 interface PopularityData {
@@ -58,7 +59,12 @@ interface PopularityData {
 interface TitleData {
    results: any[];
 }
-
+interface DownloadCount {
+   sortFunc: () => void;
+}
+interface DownloadCountClick {
+   click: () => void;
+}
 type TitleSort = {
    bookData: {
       results: any[];
