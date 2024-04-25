@@ -16,7 +16,6 @@ type BookDetailsProps = {
       languages: string[];
       copywrite: boolean
       results: any[];
-      subjects: any[];
    };
 };
 
@@ -62,20 +61,22 @@ interface TitleData {
 
 type TitleSort = {
    bookData: {
-      results: any [];
+      results: any[];
    };
    data: {
       count: number;
-      results: any [];
+      results: any[];
    };
    search: any;
    search2: any;
-   button1: () => void;
-   button2: () => void;
-   button3: () => void;
+   idButton: () => void;
+   alphabetButton: () => void;
+   clearButton: () => void;
+   fictionButton: () => void;
+   nonFictionButton: () => void;
 }
 type NextPrevProps = {
-   previous:() => void;
+   previous: () => void;
    next: () => void;
 }
 

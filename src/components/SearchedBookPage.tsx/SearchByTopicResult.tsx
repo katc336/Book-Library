@@ -8,6 +8,7 @@ import PreviousAndNextButtons from "./components/PreviousAndNextButtons";
 
 const SearchByTopicResult: React.FC = () => {
     const [page, setPage] = useState(1)
+    const [lastSort, setLastSort] = useState("");
     const { topic } = useParams();
     const [bookData, setBookData] = useState({
         formats: { 'text/html': " " },
@@ -16,7 +17,7 @@ const SearchByTopicResult: React.FC = () => {
         copywrite: false,
         results: []
     });
-    const { data, isLoading, error } = useGetSearchByTopicQuery({topic, page});
+    const { data, isLoading, error } = useGetSearchByTopicQuery({ topic, page });
     useEffect(() => {
         if (isLoading) {
             return;
@@ -57,7 +58,26 @@ const SearchByTopicResult: React.FC = () => {
     const sortClear = (data: any) => {
         setBookData(data);
     };
-    console.log(bookData)
+    const findFiction = () => {
+        if (lastSort !== "fictionButton") {
+            const results = data.results.filter((book: { subjects: [] }) => {
+                return book.subjects.some((subject: string) => subject.toLowerCase().includes("fiction")) === true;
+            });
+            const sortedData = { ...data, results };
+            setBookData(sortedData);
+            setLastSort("fictionButton");
+        }
+    };
+    const findNonFiction = () => {
+        if (lastSort !== "nonFictionButton") {
+            const results = data.results.filter((book: { subjects: [] }) => {
+                return book.subjects.some((subject: string) => subject.toLowerCase().includes("fiction")) === false;
+            });
+            const sortedData = { ...data, results };
+            setBookData(sortedData);
+            setLastSort("nonFictionButton");
+        }
+    };
     return (
         <>
             <TitleAndSort
@@ -65,9 +85,12 @@ const SearchByTopicResult: React.FC = () => {
                 data={data}
                 search={topic}
                 search2={null}
-                button1={() => sortById(bookData)}
-                button2={() => sortAlphabetically(bookData)}
-                button3={() => sortClear(data)} />
+                idButton={() => sortById(bookData)}
+                alphabetButton={() => sortAlphabetically(bookData)}
+                clearButton={() => sortClear(data)}
+                fictionButton={() => findFiction()}
+                nonFictionButton={() => findNonFiction()}
+            />
             <ResultBookDisplay bookData={bookData} />
             <PreviousAndNextButtons
                 previous={() => setPage(page - 1)}

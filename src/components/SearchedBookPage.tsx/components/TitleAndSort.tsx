@@ -5,7 +5,9 @@ import Stack from "@mui/material/Stack";
 import SortAlphabeticallyButton from '../components/SortAlphabeticallyButton';
 import SortByIdButton from '../components/SortByIdButton';
 import SortClearButton from "../components/SortClearButton";
-const TitleAndSort: React.FC<TitleSort> = ({ bookData, data, search, search2, button1, button2, button3 }) => {
+import SortFiction from "./SortFiction";
+import SortNonFiction from "./SortNonFiction";
+const TitleAndSort: React.FC<TitleSort> = ({ bookData, data, search, search2, idButton, alphabetButton, clearButton, fictionButton, nonFictionButton }) => {
     return (
         <div>
             {bookData.results && bookData.results.length === 0 ?
@@ -16,9 +18,7 @@ const TitleAndSort: React.FC<TitleSort> = ({ bookData, data, search, search2, bu
                 </Alert>
                 : //If there ARE books with that name...
                 <div>
-                    <Grid
-                        sx={{ mt: 15, mx: 3 }}
-                        container>
+                    <Grid sx={{ mt: 15, mx: 3 }} container>
                         <Grid item xs={6}>
                             <Typography variant="h3">
                                 All Books With: "{search}-{search2}"
@@ -41,17 +41,24 @@ const TitleAndSort: React.FC<TitleSort> = ({ bookData, data, search, search2, bu
                                 Note: Books are automatically sorted by popularity
                             </Typography>
                             <Stack direction="row">
-                                <SortByIdButton click={button1} />
-                                <SortAlphabeticallyButton click={button2} />
+                                <SortByIdButton click={idButton} />
+                                <SortAlphabeticallyButton click={alphabetButton} />
                             </Stack>
                         </Grid>
                         <Grid item xs={3.5} />{/* Adds spacing */}
                         <Grid
-                        sx={{ mt: 2.5 }}
-                        item xs={2}>
-                            <SortClearButton click={button3} />
+                            sx={{ mt: 2.5 }}
+                            item xs={2}>
+                            <SortClearButton click={clearButton} />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Stack direction="row">
+                                <SortFiction click={fictionButton} />
+                                <SortNonFiction click={nonFictionButton} />
+                            </Stack>
                         </Grid>
                     </Grid>
+
                 </div>
             }
         </div>
