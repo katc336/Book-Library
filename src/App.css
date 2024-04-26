@@ -63,6 +63,17 @@ body {
     transition: 0.5s;
     box-shadow: 2px 2px 5px #032b32;
 }
+.mobile-see-popular-button {
+    padding-right: 5px;
+    padding-left: 5px;
+    padding: 15px;
+    color: white;
+    border-radius: 50px;
+    border: 1px solid #031920;
+    background-image: linear-gradient(to right top, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47);
+    transition: 0.5s;
+    box-shadow: 2px 2px 5px #032b32;
+}
 .search-button:hover {
     cursor: pointer;
     transition: .5s;

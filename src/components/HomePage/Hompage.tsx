@@ -5,18 +5,20 @@ import LandingPage from "./components/LandingPage"
 import AscendingBookDisplay from "./components/AscendingBookDisplay"
 import PopularBookDisplay from "./components/PopularBookDisplay"
 import DescendingBookDisplay from "./components/DescendingBookDisplay"
+import MobileTheme from "../SharedComponents/MobileTheme"
 
 const Homepage: React.FC = () => {
     const [showPopular, setShowPopular] = useState(false);
     const [showAscending, setShowAscending] = useState(true);
     const [showDescending, setShowDescending] = useState(false);
+    const { isMobile } = MobileTheme();
     return (
         <div>
             <Box sx={{ mt: 10 }}>
                 <LandingPage />
                 <Typography
-                    variant="h3"
-                    sx={{ mt: 20, mb: 5, mx: 3 }}>
+                    variant={isMobile ? "h5" : "h3"}
+                    sx={{ mt: isMobile ? 5 : 20, mb: isMobile ? 0 : 5, mx: 3 }}>
                     Explore the Gutenberg Library:
                 </Typography>
                 <button

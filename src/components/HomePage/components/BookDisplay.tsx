@@ -4,9 +4,11 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import MobileTheme from "../../SharedComponents/MobileTheme";
 
 const BookDisplay: React.FC<BookDetailsProps> = ({ bookData }) => {
-    const shortenedTitle = (data: Title) => {
+
+    const shortenedTitle = (data: any) => {
         const bookTitle = data.title;
         const specialChars = [":", ";", "-"];
         let indexToCut = bookTitle.length;
@@ -22,21 +24,31 @@ const BookDisplay: React.FC<BookDetailsProps> = ({ bookData }) => {
             return bookTitle.substring(0, 15) + '...';
         }
     }
+    const { isMobile } = MobileTheme();
     return (
         <div>
             <Stack direction="row" flexWrap="wrap">
-                {bookData && bookData.results.map((book: Book) => (
-                    <Box
-                        sx={{ mt: 15, mx: 3 }}
-                        key={book.id}>
+                {bookData.results.map((book: SearchResult) => (
+                    <motion.div
+                        key={book.id}
+                        whileHover={{ scale: 1.1 }}>
                         <Stack direction="column">
-                            <motion.div whileHover={{ scale: 1.1 }}>
+                            <Typography
+                                sx={{
+                                    color: "#205375",
+                                    textAlign: "center",
+                                    mb: 2
+                                }}>
+                                {book.name}
+                            </Typography>
+                            <Box sx={{ m: 3 }}
+                                key={book.id}>
                                 <Card
                                     elevation={10}
                                     sx={{
                                         py: 2,
-                                        width: "16vw",
-                                        height: 250
+                                        width: isMobile ? "35vw" : "16vw",
+                                        height: isMobile ? 200 : 250
                                     }}
                                 >
                                     <Link to={`/book/${book.id}`} style={{ textDecoration: 'none' }}>
@@ -46,19 +58,20 @@ const BookDisplay: React.FC<BookDetailsProps> = ({ bookData }) => {
                                         <Typography textAlign="center">
                                             <img
                                                 style={{
-                                                    maxWidth: "150px",
-                                                    maxHeight: "220px",
+                                                    maxWidth: isMobile ? "100px" : "150px",
+                                                    maxHeight: isMobile ? "150px" : "220px",
                                                 }}
                                                 src={book.formats['image/jpeg']}
-                                                alt={book.title}
+                                                alt={book.name}
                                             />
                                         </Typography>
                                     </Link>
                                 </Card>
-                            </motion.div>
+                            </Box>
                         </Stack>
-                    </Box>
-                ))}
+                    </motion.div>
+                ))
+                }
             </Stack>
         </div>
     )
