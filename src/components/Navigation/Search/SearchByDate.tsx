@@ -88,7 +88,7 @@ const SearchByDate = () => {
                     <Grid item xs={3}>
                         <button
                             onClick={(event) => handleSearch(event)}
-                            className="mobile-date-search-button ">
+                            className={isMobile ? "mobile-date-search-button" : "search-button"}>
                             <Search />
                         </button>
                     </Grid>
