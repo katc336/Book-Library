@@ -6,22 +6,23 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { Link } from "react-router-dom";
 import Languages from "./Languages";
 import BookSubject from "./BookSubject";
-
+import MobileTheme from "../../SharedComponents/MobileTheme";
 const BookDetails: React.FC<BookDetailsProps> = ({ bookData }) => {
+    const { isMobile } = MobileTheme();
     return (
         <div>
             <Grid container>
-                <Grid item xs={3} container>
+                <Grid item xs={isMobile ? 7 : 3} container>
                     <Stack direction="column">
                         <Link to={bookData.formats['text/html']}>
-                            <button className="book-detail-button">
+                            <button className={isMobile ? "mobile-book-detail-button" : "book-detail-button"}>
                                 <Stack direction="row">
                                     <Typography
-                                        sx={{ mx: 3, fontWeight: "bold", mt: 1 }}
+                                        sx={{ mx: isMobile ? 1 : 3, fontWeight: isMobile ? "none" : "bold", mt: 1 }}
                                         variant="h6">
                                         Read Online
                                     </Typography>
-                                    <AutoStoriesIcon sx={{ mx: 4, fontSize: "50px" }} />
+                                    <AutoStoriesIcon sx={{ mx: isMobile ? 1 : 4, fontSize: isMobile ? "30px" : "50px" }} />
                                 </Stack>
                             </button>
                         </Link>

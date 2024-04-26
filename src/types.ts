@@ -18,6 +18,7 @@ interface Book {
       languages: string[];
       copywrite: boolean;
       results: any[];
+      subjects: string[]
    };
  };
  type BookAuthorProps = {
