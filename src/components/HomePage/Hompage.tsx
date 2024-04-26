@@ -5,6 +5,7 @@ import LandingPage from "./components/LandingPage"
 import AscendingBookDisplay from "./components/AscendingBookDisplay"
 import PopularBookDisplay from "./components/PopularBookDisplay"
 import DescendingBookDisplay from "./components/DescendingBookDisplay"
+
 const Homepage: React.FC = () => {
     const [showPopular, setShowPopular] = useState(false);
     const [showAscending, setShowAscending] = useState(true);
@@ -13,6 +14,11 @@ const Homepage: React.FC = () => {
         <div>
             <Box sx={{ mt: 10 }}>
                 <LandingPage />
+                <Typography
+                    variant="h3"
+                    sx={{ mt: 20, mb: 5, mx: 3 }}>
+                    Explore the Gutenberg Library:
+                </Typography>
                 <button
                     className="sort-button"
                     onClick={() => {
@@ -21,7 +27,7 @@ const Homepage: React.FC = () => {
                         setShowDescending(false);
                     }}>
                     <Typography variant="h6">
-                        Show Most Popular
+                        Show by Popularity
                     </Typography>
                 </button>
                 <button
