@@ -4,11 +4,11 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
+import MobileTheme from "../../SharedComponents/MobileTheme";
 
 const ResultBookDisplay: React.FC<BookDetailsProps> = ({ bookData }) => {
 
-    const shortenedTitle = (data: Title) => {
+    const shortenedTitle = (data: any) => {
         const bookTitle = data.title;
         const specialChars = [":", ";", "-"];
         let indexToCut = bookTitle.length;
@@ -24,6 +24,7 @@ const ResultBookDisplay: React.FC<BookDetailsProps> = ({ bookData }) => {
             return bookTitle.substring(0, 15) + '...';
         }
     }
+    const { isMobile } = MobileTheme();
     return (
         <div>
             <Stack direction="row" flexWrap="wrap">
@@ -46,8 +47,8 @@ const ResultBookDisplay: React.FC<BookDetailsProps> = ({ bookData }) => {
                                     elevation={10}
                                     sx={{
                                         py: 2,
-                                        width: "16vw",
-                                        height: 250
+                                        width: isMobile ? "35vw" : "16vw",
+                                        height: isMobile ? 200 : 250
                                     }}
                                 >
                                     <Link to={`/book/${book.id}`} style={{ textDecoration: 'none' }}>
@@ -57,8 +58,8 @@ const ResultBookDisplay: React.FC<BookDetailsProps> = ({ bookData }) => {
                                         <Typography textAlign="center">
                                             <img
                                                 style={{
-                                                    maxWidth: "150px",
-                                                    maxHeight: "220px",
+                                                    maxWidth: isMobile ? "100px" : "150px",
+                                                    maxHeight: isMobile ? "150px" : "220px",
                                                 }}
                                                 src={book.formats['image/jpeg']}
                                                 alt={book.name}

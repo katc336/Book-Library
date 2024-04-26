@@ -92,10 +92,14 @@ const SearchContainer: React.FC<SearchContainerProps> = ({ data, search, search2
                 <div />
                 : //If there ARE books...
                 <div>
-                    <SortByDownload handleSortByDownload={handleSortByDownload} />
+                    <SortByDownload
+                        handleSortByDownload={handleSortByDownload}
+                    />
                 </div>
             }
-            <ResultBookDisplay bookData={bookData} />
+            <ResultBookDisplay
+                bookData={bookData}
+            />
         </>
     )
 }
