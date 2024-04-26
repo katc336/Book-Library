@@ -1,6 +1,8 @@
 import Typography from "@mui/material/Typography"
+import MobileTheme from "../../SharedComponents/MobileTheme";
 
 const TitleAndTranslator: React.FC<BookAuthorProps> = ({ bookData }) => {
+    const { isMobile } = MobileTheme();
     const shortenedTitle = (data: { title: string }) => {
         const bookTitle = data.title;
         const specialChars = [":", ";", "-"];
@@ -19,12 +21,12 @@ const TitleAndTranslator: React.FC<BookAuthorProps> = ({ bookData }) => {
     }
     return (
         <div>
-            <Typography variant="h3">
+            <Typography variant={isMobile ?"h5":"h3"}>
                 {shortenedTitle(bookData)}
             </Typography>
             <Typography
                 sx={{ mr: 20 }}
-                variant="h5">
+                variant={isMobile ?"h6":"h5"}>
                 Written by: {bookData.authors.map((author: { name: string }) => (
                     author.name
                 ))}

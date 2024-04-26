@@ -1,7 +1,9 @@
 import Typography from "@mui/material/Typography"
 import { useNavigate } from "react-router-dom";
+import MobileTheme from "../../SharedComponents/MobileTheme";
 
 const BookSubject: React.FC<BookDetailsProps> = ({ bookData }) => {
+    const { isMobile } = MobileTheme();
     const navigate = useNavigate();
     const handleClick = (subject: string) => {
         if (subject.length === 0) {
@@ -14,7 +16,7 @@ const BookSubject: React.FC<BookDetailsProps> = ({ bookData }) => {
         <div>
             <Typography
                 sx={{ mx: 1, mt: 5 }}
-                variant="h5">
+                variant={isMobile ? "h6" : "h5"}>
                 See Related Books:
             </Typography>
             {bookData.subjects.map((subject) => (
@@ -22,9 +24,16 @@ const BookSubject: React.FC<BookDetailsProps> = ({ bookData }) => {
                     onClick={() => { handleClick(subject) }}
                     key={subject}
                     className="subject-button">
-                    <Typography variant="h6">
-                        {subject}
-                    </Typography>
+                    {isMobile
+                        ?
+                        <Typography>
+                            {subject}
+                        </Typography>
+                        :
+                        <Typography variant="h6">
+                            {subject}
+                        </Typography>
+                    }
                 </button>
             ))}
         </div>

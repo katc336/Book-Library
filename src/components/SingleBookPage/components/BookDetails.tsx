@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Languages from "./Languages";
 import BookSubject from "./BookSubject";
 import MobileTheme from "../../SharedComponents/MobileTheme";
+
 const BookDetails: React.FC<BookDetailsProps> = ({ bookData }) => {
     const { isMobile } = MobileTheme();
     return (
