@@ -12,6 +12,14 @@ body {
     height: 40px;
     width: 40vw;
 }
+.mobile-search-bar {
+    border-radius: 20px;
+    border: 1px solid #031920;
+    box-shadow: 2px 2px 5px #032b32;
+    height: 25px;
+    width: 80vw;
+    margin: 20px;
+}
 /* <---------------------------DATE BAR---------------------------> */
 .search-number {
     border-radius: 20px;
@@ -20,7 +28,13 @@ body {
     height: 40px;
     width: 100%;
 }
-
+.mobile-search-number {
+    border-radius: 20px;
+    border: 1px solid #031920;
+    box-shadow: 2px 2px 5px #032b32;
+    height: 40px;
+    width: 40%;
+}
 /* <---------------------------SEARCH BUTTON---------------------------> */
 .search-button {
     padding-right: 10px;
@@ -34,7 +48,21 @@ body {
     transition: 0.5s;
     box-shadow: 2px 2px 5px #032b32;
 }
-
+.mobile-search-button {
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-left: 40vw;
+    width: 55px;
+    margin-top: 2vh;
+    color: white;
+    border-radius: 50px;
+    border: 1px solid #031920;
+    background-image: linear-gradient(to right top, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47);
+    transition: 0.5s;
+    box-shadow: 2px 2px 5px #032b32;
+}
 .search-button:hover {
     cursor: pointer;
     transition: .5s;
@@ -43,7 +71,17 @@ body {
     text-decoration: none;
     scale: 1.1;
 }
-
+.mobile-date-search-button {
+    padding: 7px;
+    width: 50vw;
+    margin-left: 14vw;
+    color: white;
+    border-radius: 50px;
+    border: 1px solid #031920;
+    background-image: linear-gradient(to right top, #6c5d8b, #62709e, #5a83aa, #5995b1, #63a5b4, #56b3ba, #4dc0bb, #51cdb5, #2ddba9, #1be794, #39f275, #61fb47);
+    transition: 0.5s;
+    box-shadow: 2px 2px 5px #032b32;
+}
 /* <---------------------------BOOK BUTTON---------------------------> */
 .book-button {
     padding-right: 7px;
@@ -87,7 +125,22 @@ body {
     box-shadow: 2px 2px 5px #032b32;
     display: block;
 }
-
+.mobile-nav-button {
+    width: 200px;
+    border-radius: 50px;
+    border-top: solid 1px #031920;
+    border-left: solid 1px #031920;
+    border-bottom: solid 3px #031920;
+    border-right: solid 3px #031920;
+    background-color: #b7e2f7,;
+    margin-top: 1px;
+    margin-left: 15px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.5s;
+    color: white;
+    box-shadow: 2px 2px 5px #032b32;
+}
 .nav-button:hover {
     cursor: pointer;
     transition: .5s;

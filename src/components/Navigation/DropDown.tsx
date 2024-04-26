@@ -7,6 +7,7 @@ import { useState } from "react";
 import SearchByDate from "./Search/SearchByDate";
 import SearchByTopic from "./Search/SearchByTopic";
 import { useNavigate } from "react-router-dom";
+import MobileTheme from "../SharedComponents/MobileTheme";
 
 const DropDown: React.FC = () => {
     const [showDateSearch, setShowDateSearch] = useState(false);
@@ -16,32 +17,35 @@ const DropDown: React.FC = () => {
         visible: { opacity: 1, y: 0 },
     };
     const navigate = useNavigate();
+    const { isMobile } = MobileTheme();
+    
     return (
         <div>
-            <Box sx={{ ml: 3 }}>
+            <Box sx={{ 
+                ml: isMobile ? 1 :3 }}>
                 <Grid container spacing={3}>
-                    <Grid item xs={2}>
+                    <Grid item xs={isMobile ? 12 :2}>
                         <Typography
                             variant="h5"
                             sx={{ mt: 1.5, color: "#100937" }}>
                             Search By:
                         </Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={isMobile ? 12 :2}>
                         <NavButton
                             setNew={() => {
                                 navigate(`/search_book/topic/${"fiction"}`)
                             }}
                             navWord="Fiction" />
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={isMobile ? 12 :2}>
                         <NavButton
                             setNew={() => {
                                 navigate(`/search_book/topic/${"nonfiction"}`)
                             }}
                             navWord="Non Fiction" />
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={isMobile ? 12 :2}>
                         <NavButton
                             setNew={() => {
                                 setShowDateSearch(true);
@@ -49,7 +53,7 @@ const DropDown: React.FC = () => {
                             }}
                             navWord="Date" />
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={isMobile ? 12 :2}>
                         <NavButton
                             setNew={() => {
                                 setShowTopicSearch(true);

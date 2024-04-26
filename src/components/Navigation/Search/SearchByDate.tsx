@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Search from "@mui/icons-material/Search";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MobileTheme from "../../SharedComponents/MobileTheme";
 
 const SearchByDate = () => {
     const [startDate, setStartDate] = useState("");
@@ -14,6 +15,7 @@ const SearchByDate = () => {
     const [onlyNumbersError, setOnlyNumberError] = useState(false);
 
     const navigate = useNavigate();
+    const { isMobile } = MobileTheme();
 
     const handleSearch = (event: React.MouseEvent<HTMLButtonElement>) => {
         const isNumeric = (value: string) => /^\d+$/.test(value); //Check to see if the value is a number...
@@ -45,11 +47,13 @@ const SearchByDate = () => {
         <div>
             <form>
                 <Grid
-                    sx={{ my: 10, mx: 20 }}
                     container spacing={3}
-                >
-                    <Grid item xs={2}></Grid>
-                    <Grid item xs={2}>
+                    sx={{
+                        my: isMobile ? 1 : 10,
+                        mx: isMobile ? 0 : 20
+                    }}>
+                    {isMobile ? <div /> : <Grid item xs={2}></Grid>}
+                    <Grid item xs={isMobile ? 12 : 2}>
                         <Stack direction="row">
                             <Typography
                                 variant="h6"
@@ -57,7 +61,7 @@ const SearchByDate = () => {
                                 Start:
                             </Typography>
                             <input
-                                className="search-number"
+                                className={isMobile ? "mobile-search-number" : "search-number"}
                                 value={startDate}
                                 onChange={(event) => {
                                     setStartDate(event.target.value)
@@ -65,7 +69,7 @@ const SearchByDate = () => {
                             />
                         </Stack>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={isMobile ? 12 : 2}>
                         <Stack direction="row">
                             <Typography
                                 variant="h6"
@@ -73,7 +77,7 @@ const SearchByDate = () => {
                                 End:
                             </Typography>
                             <input
-                                className="search-number"
+                                className={isMobile ? "mobile-search-number" : "search-number"}
                                 value={endDate}
                                 onChange={(event) => {
                                     setEndDate(event.target.value)
@@ -84,24 +88,24 @@ const SearchByDate = () => {
                     <Grid item xs={3}>
                         <button
                             onClick={(event) => handleSearch(event)}
-                            className="search-button">
+                            className="mobile-date-search-button ">
                             <Search />
                         </button>
                     </Grid>
                 </Grid>
             </form>
             {emptyError &&
-                <Alert sx={{ mx: 50 }} severity="error">
+                <Alert sx={{ mx: isMobile ? 3 : 50 }} severity="error">
                     Please fill in both fields with a date.
                 </Alert>
             }
             {numberOrderError &&
-                <Alert sx={{ mx: 50 }} severity="error">
+                <Alert sx={{ mx: isMobile ? 3 : 50 }} severity="error">
                     Please make sure the start date is before the end date.
                 </Alert>
             }
             {onlyNumbersError &&
-                <Alert sx={{ mx: 50 }} severity="error">
+                <Alert sx={{ mx: isMobile ? 3 : 50 }} severity="error">
                     Please only enter dates of years.
                 </Alert>
             }

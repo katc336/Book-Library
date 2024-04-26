@@ -6,12 +6,14 @@ import Typography from "@mui/material/Typography";
 import Search from "@mui/icons-material/Search";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MobileTheme from "../../SharedComponents/MobileTheme";
 
 const SearchByTopic: React.FC = () => {
     const [topic, setTopic] = useState("");
     const [lengthError, setLengthError] = useState(false);
 
     const navigate = useNavigate();
+    const { isMobile } = MobileTheme();
 
     const handleSearch = (event: React.MouseEvent<HTMLButtonElement>) => {
         if (topic.length === 0) {
@@ -30,10 +32,13 @@ const SearchByTopic: React.FC = () => {
         <div>
             <form>
                 <Grid
-                    sx={{ my: 10, mx: 20 }}
+                    sx={{
+                        my: isMobile ? 1 : 10,
+                        mx: isMobile ? 0 : 20
+                    }}
                     container spacing={3}
                 >
-                    <Grid item xs={1} /> {/* spacing */}
+                    <Grid item xs={isMobile ? 0 : 1} /> {/* spacing */}
                     <Grid item xs={10}>
                         <Stack direction="row">
                             <Typography
@@ -61,7 +66,7 @@ const SearchByTopic: React.FC = () => {
                 </Grid>
             </form>
             {lengthError &&
-                <Alert sx={{ mx: 50 }} severity="error">
+                <Alert sx={{ mx: isMobile ? 3 : 50 }} severity="error">
                     Please shorten your search to under 50 characters.
                 </Alert>
             }

@@ -3,12 +3,15 @@ import Grid from "@mui/material/Grid";
 import Search from "@mui/icons-material/Search";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MobileTheme from "../../SharedComponents/MobileTheme";
 
 const SearchBar: React.FC = () => {
     const [searchBook, setSearchBook] = useState("");
     const [lengthError, setLengthError] = useState(false);
 
     const navigate = useNavigate();
+
+    const { isMobile } = MobileTheme();
 
     const handleSearch = (event: React.MouseEvent<HTMLButtonElement>) => {
         if (searchBook.length === 0) {
@@ -22,23 +25,24 @@ const SearchBar: React.FC = () => {
             navigate(`/search_book/${searchBook}`)
         }
     }
+
     return (
         <div>
             <form>
                 <Grid container>
-                    <Grid item xs={9}>
+                    <Grid item xs={isMobile ? 6 : 9}>
                         <input
-                            className="search-bar"
+                            className={isMobile ? "mobile-search-bar" : "search-bar"}
                             value={searchBook}
                             onChange={(event) => {
                                 setSearchBook(event.target.value)
                             }}
                         />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={isMobile ? 1 : 3}>
                         <button
                             onClick={(event) => handleSearch(event)}
-                            className="search-button">
+                            className={isMobile ? "mobile-search-button" : "search-button"}>
                             <Search />
                         </button>
                     </Grid>
