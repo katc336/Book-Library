@@ -49,7 +49,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({ bookData }) => {
                         </Box>
                         <Box className="book-detail">
                             <Typography
-                                sx={{ mx: 3, }}
+                                sx={{ mx: 3 }}
                                 variant="h6">
                                 Languages:
                             </Typography>
@@ -57,7 +57,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({ bookData }) => {
                         </Box>
                     </Stack>
                 </Grid>
-                <Grid item xs={11}>
+                <Grid item xs={isMobile ? 11 : 3} >
                     <BookSubject bookData={bookData} />
                 </Grid>
             </Grid>
