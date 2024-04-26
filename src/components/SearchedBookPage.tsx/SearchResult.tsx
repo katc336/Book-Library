@@ -21,16 +21,24 @@ const SearchResults: React.FC = () => {
     if (isLoading) {
         return <Loader />;
     }
+    console.log(data)
     return (
         <>
             <SearchContainer
                 data={data}
                 search={searchBook}
                 search2={null} />
-            <PreviousAndNextButtons
-                previous={() => setPage(page - 1)}
-                next={() => setPage(page + 1)}
-            />
+            {data.results && data.results.length === 0
+                ?//If there are NO books...
+                <div />
+                : //If there ARE books...
+                <div>
+                    <PreviousAndNextButtons
+                        previous={() => setPage(page - 1)}
+                        next={() => setPage(page + 1)}
+                    />
+                </div>
+            }
         </>
     )
 }

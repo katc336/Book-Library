@@ -28,10 +28,17 @@ const SearchByDateResult: React.FC = () => {
                 search={startDate}
                 search2={endDate}
             />
-            <PreviousAndNextButtons
-                previous={() => setPage(page - 1)}
-                next={() => setPage(page + 1)}
-            />
+            {data.results && data.results.length === 0
+                ?//If there are NO books...
+                <div />
+                : //If there ARE books...
+                <div>
+                    <PreviousAndNextButtons
+                        previous={() => setPage(page - 1)}
+                        next={() => setPage(page + 1)}
+                    />
+                </div>
+            }
         </>
     )
 }

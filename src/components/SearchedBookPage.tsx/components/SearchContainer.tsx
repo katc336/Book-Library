@@ -1,9 +1,9 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import ResultBookDisplay from "./ResultBookDisplay";
 import TitleAndSort from "./TitleAndSort";
 import SortByDownload from "./SortByDownload";
 
-const SearchContainer: React.FC<{ data: any, search: any, search2: any }>= ({ data, search, search2 }) => {
+const SearchContainer: React.FC<{ data: any, search: any, search2: any }> = ({ data, search, search2 }) => {
     const [lastSort, setLastSort] = useState("");
     const [bookData, setBookData] = useState({
         formats: { 'text/html': " " },
@@ -13,12 +13,12 @@ const SearchContainer: React.FC<{ data: any, search: any, search2: any }>= ({ da
         results: []
     });
     useEffect(() => {
-       
+
         if (data) {
             setBookData(data);
         }
     }, [data]);
-       
+
     const sortById = (data: any) => {
         // Make a copy of the results array from the data object
         let results = data.results.slice();
@@ -87,7 +87,13 @@ const SearchContainer: React.FC<{ data: any, search: any, search2: any }>= ({ da
                 clearButton={() => sortClear(data)}
                 fictionButton={() => findFiction()}
                 nonFictionButton={() => findNonFiction()} />
-            <SortByDownload handleSortByDownload={handleSortByDownload} />
+            {bookData.results && bookData.results.length === 0 ?
+                <div />
+                : //If there ARE books with that name...
+                <div>
+                    <SortByDownload handleSortByDownload={handleSortByDownload} />
+                </div>
+            }
             <ResultBookDisplay bookData={bookData} />
         </>
     )
