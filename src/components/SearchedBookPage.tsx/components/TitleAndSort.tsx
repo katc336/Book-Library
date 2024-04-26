@@ -5,8 +5,17 @@ import Stack from "@mui/material/Stack";
 import SortClearButton from "../components/SortClearButton";
 import SortButton from "./SortButton";
 
-const TitleAndSort: React.FC<TitleSort> = ({ bookData, data, search, search2, idButton, alphabetButton, clearButton, fictionButton, nonFictionButton }) => {
-
+const TitleAndSort: React.FC<TitleSort> = ({
+    bookData,
+    data,
+    search,
+    search2,
+    idButton,
+    alphabetButton,
+    clearButton,
+    fictionButton,
+    nonFictionButton
+}) => {
     return (
         <div>
             {bookData.results && bookData.results.length === 0 ?

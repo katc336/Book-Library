@@ -1,8 +1,8 @@
 import Typography from "@mui/material/Typography"
 
 const TitleAndTranslator: React.FC<BookAuthorProps> = ({ bookData }) => {
-    const shortenedTitle = (data: Title) => {
-        const bookTitle = data.title; 
+    const shortenedTitle = (data: { title: string }) => {
+        const bookTitle = data.title;
         const specialChars = [":", ";", "-"];
         let indexToCut = bookTitle.length;
         for (let char of specialChars) {
@@ -25,7 +25,7 @@ const TitleAndTranslator: React.FC<BookAuthorProps> = ({ bookData }) => {
             <Typography
                 sx={{ mr: 20 }}
                 variant="h5">
-                Written by: {bookData.authors.map((author: Author) => (
+                Written by: {bookData.authors.map((author: { name: string }) => (
                     author.name
                 ))}
             </Typography>
@@ -37,8 +37,8 @@ const TitleAndTranslator: React.FC<BookAuthorProps> = ({ bookData }) => {
                     <Typography
                         sx={{ mr: 40 }}
                         variant="h6">
-                        Translated by: {bookData.translators.map((author: Author) => (
-                            author.name
+                        Translated by: {bookData.translators.map((translator: { name: string }) => (
+                            translator.name
                         ))}
                     </Typography>
                 </div>

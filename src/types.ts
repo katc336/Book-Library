@@ -1,71 +1,67 @@
 interface Book {
-   id: number,
+   id: number;
    title: string;
    formats: BookImage;
-   navWord: string
+   navWord: string;
    subjects: any[];
-}
-type NavButtonProps = {
+ }
+ 
+ type NavButtonProps = {
    navWord: string;
    setNew: () => void;
-}
-type BookDetailsProps = {
+ };
+ 
+ type BookDetailsProps = {
    bookData: {
-      formats: { 'text/html': string; };
+      formats: { 'text/html': string };
       download_count: number;
       languages: string[];
-      copywrite: boolean
+      copywrite: boolean;
       results: any[];
    };
-};
-
-type BookAuthorProps = {
+ };
+ type BookAuthorProps = {
    bookData: {
-      title: string,
+      title: string;
       authors: [];
       translators: [];
    };
-};
-type EventProps = {
-   event: string;
-}
-type BookImage = {
+ };
+ type BookImage = {
    [key: string]: string;
    'image/jpeg': string;
-}
-
-interface SearchResult {
+ };
+ 
+ interface SearchResult {
    id: number;
    name: string;
-   title: string
+   title: string;
    formats: BookImage;
-}
-
-interface Author {
-   name: string
-}
-interface Title {
-   title: string
-}
-
-type SortButtonProps = {
+ };
+ 
+ type SortButtonProps = {
    click: () => void;
-   content: string
-}
-
-interface PopularityData {
+   content: string;
+ };
+ 
+ interface PopularityData {
    results: any[];
-}
-interface TitleData {
+ };
+ 
+ interface TitleData {
    results: any[];
-}
-interface DownloadCount {
+ };
+ 
+ interface DownloadCount {
    sortFunc: () => void;
-}
-interface DownloadCountClick {
+ };
+ 
+ 
+ interface DownloadCountClick {
    click: () => void;
-}
-type TitleSort = {
+ };
+
+ type TitleSort = {
    bookData: {
       results: any[];
    };
@@ -80,14 +76,16 @@ type TitleSort = {
    clearButton: () => void;
    fictionButton: () => void;
    nonFictionButton: () => void;
-}
-type SearchContainerProps = {
-   data: any,
-   search: any,
-   search2: any
-}
-type NextPrevProps = {
+ };
+ 
+ type SearchContainerProps = {
+   data: any ;
+   search: any;
+   search2: any;
+ };
+ 
+ type NextPrevProps = {
    previous: () => void;
    next: () => void;
-}
-
+ };
+ 
