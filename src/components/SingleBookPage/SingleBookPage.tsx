@@ -7,8 +7,10 @@ import { useParams } from "react-router-dom";
 import BookDetails from "./components/BookDetails"
 import TitleAndTranslator from "./components/TitleAndTranslator"
 import Loader from "../SharedComponents/Loader"
+import MobileTheme from "../SharedComponents/MobileTheme"
 
 const SingleBook: React.FC = () => {
+    const { isMobile } = MobileTheme();
     const { id } = useParams();
     const { data, error, isLoading } = useGetSingleBookQuery(id);
     if (isLoading) {
@@ -27,15 +29,15 @@ const SingleBook: React.FC = () => {
                     py: 10,
                     pl: 3,
                     backgroundImage: "linear-gradient(to bottom, #b7e2f7, #bce3f7, #c0e5f8, #c5e6f8, #c9e8f8, #cdeaf8, #d0ebf9, #d4edf9, #d8effa, #dcf1fa, #e1f3fb, #e5f5fc)",
-                    mt: 15,
+                    mt: isMobile ? 25 : 15,
                     width: "100vw",
                     position: "relative",
                 }}>
                     <Grid container>
-                        <Grid item xs={10.5}>
+                        <Grid item xs={isMobile ? 9 : 10.5}>
                             <TitleAndTranslator bookData={data} />
                         </Grid>
-                        <Grid item xs={1.5}>
+                        <Grid item xs={isMobile ? 3 : 1.5}>
                             <Box sx={{
                                 m: 2,
                                 p: 2,
@@ -50,13 +52,15 @@ const SingleBook: React.FC = () => {
                         </Grid>
                     </Grid>
                     <img
-                        className="single-book-img"
-                        width="23%"
+                        className={isMobile ? "mobile-single-book-img" : "single-book-img"}
+                        width={isMobile ? "50%" : "23%"}
                         src={data.formats['image/jpeg']} alt={data.title}
                     />
                 </Box>
             </Stack>
-            <BookDetails bookData={data} />
+            <Box sx={{ mt: isMobile ? 10 : 0 }}>
+                <BookDetails bookData={data} />
+            </Box>
         </div>
     )
 }

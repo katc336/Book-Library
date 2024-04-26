@@ -13,17 +13,17 @@ const BookDetails: React.FC<BookDetailsProps> = ({ bookData }) => {
     return (
         <div>
             <Grid container>
-                <Grid item xs={isMobile ? 7 : 3} container>
+                <Grid item xs={isMobile ? 12 : 3} container>
                     <Stack direction="column">
                         <Link to={bookData.formats['text/html']}>
                             <button className={isMobile ? "mobile-book-detail-button" : "book-detail-button"}>
                                 <Stack direction="row">
                                     <Typography
-                                        sx={{ mx: isMobile ? 1 : 3, fontWeight: isMobile ? "none" : "bold", mt: 1 }}
+                                        sx={{ mx: isMobile ? 3 : 3, fontWeight: isMobile ? "none" : "bold", mt: 1 }}
                                         variant="h6">
                                         Read Online
                                     </Typography>
-                                    <AutoStoriesIcon sx={{ mx: isMobile ? 1 : 4, fontSize: isMobile ? "30px" : "50px" }} />
+                                    <AutoStoriesIcon sx={{ mx: isMobile ? 0 : 4, fontSize: isMobile ? "40px" : "50px" }} />
                                 </Stack>
                             </button>
                         </Link>
@@ -57,7 +57,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({ bookData }) => {
                         </Box>
                     </Stack>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={11}>
                     <BookSubject bookData={bookData} />
                 </Grid>
             </Grid>
