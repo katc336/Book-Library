@@ -81,6 +81,11 @@ type TitleSort = {
    fictionButton: () => void;
    nonFictionButton: () => void;
 }
+type SearchContainerProps = {
+   data: any,
+   search: any,
+   search2: any
+}
 type NextPrevProps = {
    previous: () => void;
    next: () => void;

@@ -3,7 +3,7 @@ import ResultBookDisplay from "./ResultBookDisplay";
 import TitleAndSort from "./TitleAndSort";
 import SortByDownload from "./SortByDownload";
 
-const SearchContainer: React.FC<{ data: any, search: any, search2: any }> = ({ data, search, search2 }) => {
+const SearchContainer: React.FC<SearchContainerProps> = ({ data, search, search2 }) => {
     const [lastSort, setLastSort] = useState("");
     const [bookData, setBookData] = useState({
         formats: { 'text/html': " " },
@@ -87,9 +87,10 @@ const SearchContainer: React.FC<{ data: any, search: any, search2: any }> = ({ d
                 clearButton={() => sortClear(data)}
                 fictionButton={() => findFiction()}
                 nonFictionButton={() => findNonFiction()} />
-            {bookData.results && bookData.results.length === 0 ?
+            {bookData.results && bookData.results.length === 0
+                ?//If there are NO books...
                 <div />
-                : //If there ARE books with that name...
+                : //If there ARE books...
                 <div>
                     <SortByDownload handleSortByDownload={handleSortByDownload} />
                 </div>
