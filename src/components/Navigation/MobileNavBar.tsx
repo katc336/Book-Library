@@ -27,7 +27,7 @@ const MobileNavBar: React.FC = () => {
                 sx={{
                     backgroundColor: "#b7e2f7",
                     pt: 3,
-                    pb: 8
+                    pb: 10
                 }}>
                 <motion.div
                     initial="hidden"

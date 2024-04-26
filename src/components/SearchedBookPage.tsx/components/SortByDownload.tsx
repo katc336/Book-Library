@@ -4,16 +4,20 @@ import Grid from "@mui/material/Grid";
 import CancelIcon from '@mui/icons-material/Cancel';
 import SortByDownloadForm from "./SortByDownloadForm";
 import { useState } from "react";
+import MobileTheme from "../../SharedComponents/MobileTheme";
 
-const SortByDownload: React.FC<SortByDownloadFormProps> = ({ handleSortByDownload }) => {
+const SortByDownload: React.FC<{ handleSortByDownload: any }> = ({ handleSortByDownload }) => {
     const [showCountInput, setShowCountInput] = useState(false);
     const [showButton, setShowButton] = useState(true);
+
+    const { isMobile } = MobileTheme();
+
     return (
         <div>
             <Box sx={{
                 ml: showCountInput ? 5 : 3,
-                mr: 100,
-                my: showCountInput ? 3 : 0, 
+                mr: isMobile ? 3 : 100,
+                my: showCountInput ? 3 : 0,
                 pt: 1,
                 pb: 5,
                 border: showCountInput ? "1px solid #62709e" : "",
@@ -28,14 +32,19 @@ const SortByDownload: React.FC<SortByDownloadFormProps> = ({ handleSortByDownloa
                                     setShowCountInput(true)
                                     setShowButton(false);
                                 }}
-                                content="Find by Download Count"
+                                content="Download Count"
                             />
                         }
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid
+                        sx={{ ml: isMobile ? 30 : 0 }}
+                        item xs={isMobile ? 12 : 1}>
                         {showCountInput &&
                             <button
-                                style={{ border: "none", backgroundColor: "transparent" }}
+                                style={{
+                                    border: "none",
+                                    backgroundColor: "transparent"
+                                }}
                                 onClick={() => {
                                     setShowCountInput(false);
                                     setShowButton(true);
@@ -44,9 +53,14 @@ const SortByDownload: React.FC<SortByDownloadFormProps> = ({ handleSortByDownloa
                                     sx={{ color: "#114762" }}
                                     fontSize="large" />
                             </button>
-                            }
+                        }
                     </Grid>
-                    {showCountInput && <SortByDownloadForm handleSortByDownload = { handleSortByDownload }  />}
+                    {
+                        showCountInput &&
+                        <SortByDownloadForm
+                            handleSortByDownload={handleSortByDownload}
+                        />
+                    }
                 </Grid>
             </Box>
         </div>

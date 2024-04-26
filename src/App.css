@@ -16,8 +16,8 @@ body {
     border-radius: 20px;
     border: 1px solid #031920;
     box-shadow: 2px 2px 5px #032b32;
-    height: 25px;
-    width: 80vw;
+    height: 30px;
+    width: 70vw;
     margin: 20px;
 }
 /* <---------------------------DATE BAR---------------------------> */
@@ -51,11 +51,11 @@ body {
 .mobile-search-button {
     padding-right: 5px;
     padding-left: 5px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    margin-left: 40vw;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 30vw;
     width: 55px;
-    margin-top: 2vh;
+    margin-top: 2.5vh;
     color: white;
     border-radius: 50px;
     border: 1px solid #031920;
@@ -289,7 +289,6 @@ body {
     margin-bottom: 10px;
     margin-top: 10px;
     padding: 10px;
-    padding-bottom: 7px;
     color: #031920;
     border: 1px solid #031920;
     border-radius: 10px;
@@ -297,7 +296,16 @@ body {
     transition: 0.5s;
     box-shadow: 2px 2px 5px #032b32;
 }
-
+.mobile-sort-button {
+    margin: 5px;
+    padding: 5px;
+    color: #031920;
+    border: 1px solid #031920;
+    border-radius: 10px;
+    background-image: linear-gradient(to right top, #92c2d8, #9ecdd7, #8fd0d5, #8fd6d3, #b9f4e8, #abfce5, #9fffd9, #b8fece, #c5f8bc);
+    transition: 0.5s;
+    box-shadow: 2px 2px 5px #032b32;
+}
 .sort-button:hover {
     cursor: pointer;
     transition: .5s;
@@ -322,7 +330,17 @@ body {
     transition: 0.5s;
     box-shadow: 2px 2px 5px #032b32;
 }
-
+.mobile-clear-button {
+    margin: 5px;
+    padding: 5px;
+    padding-bottom: 5px;
+    color: #031920;
+    border: 1px solid #031920;
+    border-radius: 10px;
+    background-image: linear-gradient(to right top, #f19bba, #f58dad, #f9809d, #fb718c, #fc6379, #ff606b, #ff5e5d, #ff5e4d, #ff6b40, #ff7931, #ff8720, #ff9600);
+    transition: 0.5s;
+    box-shadow: 2px 2px 5px #032b32;
+}
 .clear-button:hover {
     cursor: pointer;
     transition: .5s;
